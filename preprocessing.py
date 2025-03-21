@@ -15,7 +15,7 @@ import gc  # Garbage Collector zur Speicherverwaltung
 def preprocessing_pipeline():
         
     # Daten laden
-    df = pd.read_csv('data.csv')
+    df = pd.read_csv(r'data_mining\data.csv')
 
     # Entferne unnötige Spalten
     if 'Unnamed: 0' in df.columns:
@@ -86,4 +86,4 @@ def preprocessing_pipeline():
 
     # Datensatz in Trainings- und Testdaten aufteilen
     X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
-    return X_train, X_test, y_train, y_test , categorical_features , numeric_features
+    return X_train, X_test, y_train, y_test , X,y, categorical_features , numeric_features
