@@ -56,6 +56,10 @@ def preprocessing_pipeline():
     df['fuel_consumption_l_100km'] = df['fuel_consumption_l_100km'].apply(clean_fuel_consumption)
     df['fuel_consumption_g_km'] = df['fuel_consumption_g_km'].apply(clean_fuel_consumption_g)
 
+    # Konvertiere die Powerspalten
+    for col in ['power_ps', 'power_kw']:
+        df[col] = df[col].astype(float)
+
     # Konvertiere registration_date in datetime und extrahiere Monat und Jahr als Features
     df['registration_date'] = pd.to_datetime(df['registration_date'], format='%m/%Y', errors='coerce')
     df['registration_month'] = df['registration_date'].dt.month
