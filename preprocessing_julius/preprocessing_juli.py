@@ -59,6 +59,7 @@ def preprocessing_pipeline():
         
     # Daten laden
     df = pd.read_csv('data.csv')
+   # df = df[df['fuel_type'].isin(['Diesel','Petrol'])].reset_index(drop= True).copy()
 
     # Entferne unnötige Spalten
     if 'Unnamed: 0' in df.columns:
