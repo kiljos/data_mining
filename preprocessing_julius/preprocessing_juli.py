@@ -70,6 +70,7 @@ def preprocessing_pipeline():
     df = df.drop_duplicates()
 
     # Filtere die Jahr-Spalte (Achtung: Dieser Filter nimmt die ersten 29 eindeutigen Werte; evtl. anpassen)
+    # wird gemacht um auf die Verschiebung von den Werten zu reagieren
     print('Werte in der year-Spalte vor dem Filtern:')
     print(df['year'].unique(), '\n')
     yearsToFilter = list(df['year'].unique()[:29])
@@ -82,8 +83,8 @@ def preprocessing_pipeline():
     df['year'] = pd.to_numeric(df['year'], errors='coerce')
 
     # Funktionen zur Bereinigung der Kraftstoffverbrauchswerte
-    def clean_fuel_consumption(value):
-        if pd.isna(value) or value == '- (g/km)':
+    def clean_fuel_consumption(value): # Bei Elektroautos steht Reichweite
+        if pd.isna(value) or 'l/100 km' not in str(value):
             return np.nan
         try:
             return float(value.split(' ')[0].replace(',', '.'))
@@ -91,7 +92,7 @@ def preprocessing_pipeline():
             return np.nan
 
     def clean_fuel_consumption_g(value):
-        if pd.isna(value) or value == '- (g/km)':
+        if pd.isna(value) or value == '- (g/km)' or 'g/km' not in str(value): # Bei Elektroautos steht Reichweite
             return np.nan
         try:
             return float(value.split(' ')[0])
