@@ -66,6 +66,7 @@ def preprocessing_pipeline():
     if 'offer_description' in df.columns:
         df = df.drop('offer_description', axis=1)
 
+    # Entferne die Duplikate
     df = df.drop_duplicates()
 
     # Filtere die Jahr-Spalte (Achtung: Dieser Filter nimmt die ersten 29 eindeutigen Werte; evtl. anpassen)
