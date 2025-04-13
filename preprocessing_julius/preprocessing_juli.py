@@ -59,6 +59,9 @@ def preprocessing_pipeline():
         
     # Daten laden
     df = pd.read_csv('data.csv')
+    df_segmente = pd.read_csv('df_mit_segment.csv')
+    join_df = df_segmente[['model', 'segment']].drop_duplicates().reset_index(drop= True).copy()
+    df = pd.merge(df, join_df, on = 'model').copy()
    # df = df[df['fuel_type'].isin(['Diesel','Petrol'])].reset_index(drop= True).copy()
 
     # Entferne unnötige Spalten
@@ -132,6 +135,7 @@ def preprocessing_pipeline():
     if 'year' in df.columns:
         df = df.drop('year', axis=1)
 
+    
     # Entferne Zeilen mit fehlenden Werten
     print(f"Dataset-Größe vor dem Entfernen von NaN-Werten: {len(df)}")
     df = df.dropna()
