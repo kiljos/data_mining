@@ -95,12 +95,27 @@ def main():
             algorithm='auto',
             n_jobs=-1  
         ))
-    ])"""
+    ])
+    
+    # Finding optimal K value...
+    # Best K: 4
+    # Best MSE: 399932096.64
+
+    # Training KNN model with optimal K...
+    # KNN Regression Performance Metrics:
+    # MAE: 3654.98
+    # MSE: 170670961.13
+    # RMSE: 13064.11
+    # R²: 0.83
+    
+    
+    
+    """
 
     final_knn_pipeline = Pipeline(steps=[
         ('preprocessor', preprocessor),
         ('model', KNeighborsRegressor(
-            n_neighbors=5,
+            n_neighbors=4,
             weights='distance',  
             algorithm='auto',
             n_jobs=-1  
