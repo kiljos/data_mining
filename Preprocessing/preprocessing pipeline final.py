@@ -16,7 +16,7 @@ def preprocessing_pipeline():
     df = pd.read_csv('data.csv')
         
     # entferne unnötige Spalten    
-    df = df.drop_duplicates() 
+    df = df.drop_duplicates() # Ausnahme hinzufügen: alle außer diese unnötige Index Spalte und die offer Description Spalte
 
     if 'Unnamed: 0' in df.columns:
         df = df.drop('Unnamed: 0', axis=1)
@@ -24,11 +24,13 @@ def preprocessing_pipeline():
     # andere fuel Types als Diesel und Petrol in einen anderen Datensatz extrakhieren    
     valid_fuel_types = ['Hybrid', 'Diesel Hybrid', 'Electric', 'LPG', 'CNG', 'Ethanol', 'Hydrogen', 'Other']
     df_before_filter = df.copy()    
+    df_other_fuel_types = df_before_filter[(~df_before_filter['fuel_type'].isin(['Diesel', 'Petrol'])) & (df_before_filter['fuel_type'].isin(valid_fuel_types))].reset_index(drop=True)
+       # evtl. den ersten Teil  ~df_before_filter['fuel_type'].isin(['Diesel', 'Petrol'])) & rausnehmen? Denn ist ja doppelt, denn Bedingung wird ja in dem 2. Teil ja schon überpüft wird
         
     df = df.loc[df['fuel_type'].isin(['Diesel', 'Petrol'])]
-    df = df.loc[df['fuel_consumption_g_km'].str.contains(r'g/km', na=False)]
+    df = df.loc[df['fuel_consumption_g_km'].str.contains(r'g/km', na=False)] # hiermit werden hybride Fahrzeuge rausgefiltert (haben Reichweite in g/km drin, aber trotzdem fuel Type Petrol/ Diesel
     df = df.reset_index(drop=True)
-    df_other_fuel_types = df_before_filter[(~df_before_filter['fuel_type'].isin(['Diesel', 'Petrol'])) & (df_before_filter['fuel_type'].isin(valid_fuel_types))].reset_index(drop=True)
+    
             
     # Zeilen mit falschen Jahreszahlen werden herausgenommen
     yearsToFilter = list(df['year'].unique()[:29])
@@ -58,9 +60,8 @@ def preprocessing_pipeline():
 
 
     # Funktion zur Berechnung fehlender l/100km Werte, wenn g/km gegeben ist
-    conversion_factor = 0.043103448275862
-
     def calculate_fuel_consumption(row):
+        conversion_factor = 0.043103448275862        
         if pd.isna(row['fuel_consumption_l_100km']) or row['fuel_consumption_l_100km'] == 0:
             if pd.notna(row['fuel_consumption_g_km']) and row['fuel_consumption_g_km'] != 0:
                 return row['fuel_consumption_g_km'] * conversion_factor
