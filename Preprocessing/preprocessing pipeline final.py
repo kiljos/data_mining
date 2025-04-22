@@ -57,9 +57,13 @@ def preprocessing_pipeline():
     # Daten laden
     df = pd.read_csv('data.csv')
         
-    # entferne unnötige Spalten    
-    df = df.drop_duplicates() # Ausnahme hinzufügen: alle außer diese unnötige Index Spalte und die offer Description Spalte
+    # entferne Duplikate  
+    df = df.drop_duplicates(subset= ['brand', 'model', 'color', 'registration_date', 'year',
+       'price_in_euro', 'power_kw', 'power_ps', 'transmission_type',
+       'fuel_type', 'fuel_consumption_l_100km', 'fuel_consumption_g_km',
+       'mileage_in_km', 'offer_description']) 
 
+    # Droppe zweite Index Spalte
     if 'Unnamed: 0' in df.columns:
         df = df.drop('Unnamed: 0', axis=1)
 
@@ -103,7 +107,9 @@ def preprocessing_pipeline():
 
     # Funktion zur Berechnung fehlender l/100km Werte, wenn g/km gegeben ist
     def calculate_fuel_consumption(row):
-        conversion_factor = 0.043103448275862        
+
+        conversion_factor = 0.043103448275862
+
         if pd.isna(row['fuel_consumption_l_100km']) or row['fuel_consumption_l_100km'] == 0:
             if pd.notna(row['fuel_consumption_g_km']) and row['fuel_consumption_g_km'] != 0:
                 return row['fuel_consumption_g_km'] * conversion_factor
@@ -114,7 +120,9 @@ def preprocessing_pipeline():
 
     df['fuel_consumption_l_100km'] = df.apply(calculate_fuel_consumption, axis=1)
     
-    df = fix_model_brand_conflicts(df) # neu aus Julius Preprocessing hinzufügt: wenn Modelname = Marke, dann schauen ob Modelname eindeutig zugeordnet werden kann
+    # Fixe wo model = brand, versuche eindeutig Model zuzuweisen sonst droppen 
+    df = fix_model_brand_conflicts(df) 
+
     df.drop(columns=['fuel_consumption_g_km'])
         
     # Spalten ins numerische umwandeln
@@ -129,7 +137,7 @@ def preprocessing_pipeline():
     df['registration_year'] = df['registration_date'].dt.year
     df = df.drop('registration_date', axis=1)
 
-
+    # Droppe alle Zeilen, in denen null values vorkommen
     df = df.dropna()
 
     # Outlier Detection für fuel
