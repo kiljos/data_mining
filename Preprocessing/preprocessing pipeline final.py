@@ -112,7 +112,8 @@ def preprocessing_pipeline():
             return row['fuel_consumption_l_100km']
 
     df['fuel_consumption_l_100km'] = df.apply(calculate_fuel_consumption, axis=1)
-
+    
+    df = fix_model_brand_conflicts(df) # neu aus Julius Preprocessing hinzufügt: wenn Modelname = Marke, dann schauen ob Modelname eindeutig zugeordnet werden kann
     df.drop(columns=['fuel_consumption_g_km'])
         
     # Spalten ins numerische umwandeln
