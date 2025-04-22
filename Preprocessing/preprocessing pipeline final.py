@@ -10,6 +10,47 @@ from sklearn.linear_model import LinearRegression
 from sklearn.metrics import mean_absolute_error, mean_squared_error, r2_score
 import gc  # Garbage Collector zur Speicherverwaltung
 
+def fix_model_brand_conflicts(df):
+    '''Diese Funktion überprüft, ob es Zeilen gibt, in denen brand = model ist. In diesen Zeilen haben wir keine Informationen
+    über das Model. 
+    
+    Um die Zeilen aber nicht direkt zu droppen, wird vorher geschaut, ob man über bestimmte Spalten das Model eindeutig zuornden kann.
+    Ist eine eindeutige Zuordnung möglich, dann überschreiben wir die ursprüngliche Ausprägung in model. Ist keine Zuordnung möglich, dann wird die Zeile
+    gedroppt.
+    '''
+
+    def normalize(text):
+        if pd.isna(text):
+            return ""
+        return re.sub(r'[^a-z0-9]', '', text.lower())
+
+    df['brand_norm'] = df['brand'].apply(normalize)
+    df['model_norm'] = df['model'].apply(normalize)
+
+    mask_same = df['brand_norm'] == df['model_norm']
+
+    problem_rows = df[mask_same].copy()
+    clean_rows = df[~mask_same].copy()
+
+    grouped_models = clean_rows \
+        .groupby(['brand', 'power_ps', 'fuel_consumption_g_km', 'transmission_type', 'fuel_type'])['model'] \
+        .unique().reset_index() 
+
+    grouped_models = grouped_models[grouped_models['model'].apply(len) == 1] # nur kontexte bei denen model unique ist (ein element in der liste)
+    grouped_models['model'] = grouped_models['model'].apply(lambda x: x[0]) # nimm nur das erste element aus der liste
+
+    problem_fixed = problem_rows.merge(grouped_models, on=['brand', 'power_ps', 'fuel_consumption_g_km', 'transmission_type', 'fuel_type'],
+                                       how='left', suffixes=('', '_fixed'))
+
+    recovered = problem_fixed[problem_fixed['model_fixed'].notna()].copy()
+    recovered['model'] = recovered['model_fixed']
+    recovered = recovered.drop(columns=['model_fixed'])
+
+    final_df = pd.concat([clean_rows, recovered], ignore_index=True) \
+                 .drop(columns=['brand_norm', 'model_norm'])
+
+    return final_df
+
 def preprocessing_pipeline():
         
     # Daten laden
