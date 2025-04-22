@@ -142,6 +142,16 @@ def preprocessing_pipeline():
             # !!! TO-DO: bei power_ps nur eigener unterer Threshold 
             # !!!! TO-DO: bei Kilometer eigener oberer Threshold
 
+    def filter_models_with_min_count(df, model_col='model', min_count=100):
+        '''Diese Funktion filtert den DF auf die Modelle ein die in einer bestimmten
+        Frequenz vorkommen'''
+        model_counts = df[model_col].value_counts()
+        models_over_threshold = model_counts[model_counts >= min_count].index
+        df_filtered = df[df[model_col].isin(models_over_threshold)]
+        return df_filtered
+    
+    # Nur die Modelle, die mind. 100 mal vorkommen
+    df = filter_models_with_min_count(df, 'model', 100)
     # Auswerten der Offer Description Spalte
 
     """ 
