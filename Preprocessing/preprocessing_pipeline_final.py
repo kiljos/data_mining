@@ -171,7 +171,8 @@ def preprocessing_pipeline():
     
 
     # habe nochmal überlegt ist das net data leakage? Trainingsdatensatz ehält info wie der Testdatensatz verteilt ist
-  ''' df['outlier_model_price'] = detect_outliers_iqr(df, ['brand', 'model'], 'price_in_euro')
+    ''' 
+    df['outlier_model_price'] = detect_outliers_iqr(df, ['brand', 'model'], 'price_in_euro')
     df['outlier_model_mileage'] = detect_outliers_iqr(df, ['brand', 'model'], 'mileage_in_km')
 
     # Entferne alle Rows, die bei Preis & Mileage ein Outlier sind
