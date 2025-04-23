@@ -199,7 +199,6 @@ def preprocessing_pipeline():
 
     #Sollten eigentlich schon draußen sein, aber entfernt zur sicherheit nochmal alle leeren werte 
     df = df.dropna(subset=["offer_description_cleaned"]) 
-    print(df[df["offer_description_cleaned"].isna()])
 
     # Erstellen eines CountVectorizer, der die deutschen Stopwörter verwendet -> nimmt sich hier jetzt die 50 häufigsten wörter
     vectorizer = CountVectorizer(analyzer='word', stop_words=german_stopwords, max_features=50)
@@ -213,8 +212,6 @@ def preprocessing_pipeline():
     # Berechnung der Häufigkeit jedes Schlagworts
     word_count = word_freq.sum().sort_values(ascending=False)
 
-    # Ausgabe der häufigsten Schlagwörter und ihrer Häufigkeit
-    print(word_count)
 
 
     # Die oben ausgegebene Liste an häufigsten Wörtern wurde dann per Hand aussortiert, e.g. Wörter wie "auto, matic" usw. wurden entfernt
@@ -226,7 +223,6 @@ def preprocessing_pipeline():
 
     # Kategorien + zugehörige Abkürzungen in Dictionary gruppieren
     abkuerzung_dict = kat.groupby("Kategorie")["Abkuerzung"].apply(list).to_dict()
-    print(abkuerzung_dict)
 
     # Für jede Kategorie eine neue Spalte erzeugen, die boolesche Werte enthält
     # Also z.B. has_navigation? yes / no
