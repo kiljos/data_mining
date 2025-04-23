@@ -147,7 +147,36 @@ def preprocessing_pipeline():
     lower_bound_fuel= q1_fuel - 1.5 * iqr_fuel
     upper_bound_fuel=22.0 # hier bisher Fixwert, da viele der Luxusautos wie Bentleys/ Lamborghini Aventadors etc. weit über q3_fuel + 1.5*iqr (der wäre 9.5)
     df = df[(df['fuel_consumption_l_100km'] >= lower_bound_fuel) & (df['fuel_consumption_l_100km'] <= upper_bound_fuel)] # damit werden ca. 240 Zeilen gelöscht
-    # !!! TO-DO: Noch anwenden auf Preis, power_ps  und mileage
+    
+    # Funktion Outlier detection für Preis & Mileage 
+    def detect_outliers_iqr(df, group_col, target_col):
+        outlier_flags = pd.Series(False, index=df.index)
+
+        for name, group in df.groupby(group_col):
+            if len(group) < 2:
+                continue
+
+            q1 = group[target_col].quantile(0.25)
+            q3 = group[target_col].quantile(0.75)
+            iqr = q3 - q1
+            lower = q1 - 1.5 * iqr
+            upper = q3 + 1.5 * iqr
+
+            mask = (group[target_col] < lower) | (group[target_col] > upper)
+            outlier_flags.loc[group[mask].index] = True
+
+        return outlier_flags
+    
+    df['outlier_model_price'] = detect_outliers_iqr(df, ['brand', 'model'], 'price_in_euro')
+    df['outlier_model_mileage'] = detect_outliers_iqr(df, ['brand', 'model'], 'mileage_in_km')
+
+    # Entferne alle Rows, die bei Preis & Mileage ein Outlier sind
+    df = df[
+        (~df['outlier_model_price']) &
+        (~df['outlier_model_mileage'])
+    ].copy()
+    
+    # !!! TO-DO: Noch anwenden power_ps
             # !!! TO-DO: bei power_ps nur eigener unterer Threshold 
             # !!!! TO-DO: bei Kilometer eigener oberer Threshold
 
