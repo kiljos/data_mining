@@ -1,13 +1,5 @@
 import pandas as pd
 import numpy as np
-import matplotlib.pyplot as plt
-from sklearn.model_selection import train_test_split
-from sklearn.preprocessing import StandardScaler, OneHotEncoder
-from sklearn.compose import ColumnTransformer
-from sklearn.pipeline import Pipeline
-from sklearn.impute import SimpleImputer
-from sklearn.linear_model import LinearRegression
-from sklearn.metrics import mean_absolute_error, mean_squared_error, r2_score
 import re
 import gc  # Garbage Collector zur Speicherverwaltung
 
@@ -136,8 +128,9 @@ def preprocessing_pipeline():
     df['registration_date'] = pd.to_datetime(df['registration_date'], format='%m/%Y', errors='coerce')
     df['registration_month'] = df['registration_date'].dt.month
     df['registration_year'] = df['registration_date'].dt.year
-    df = df.drop('registration_date', axis=1)
 
+    df = df.drop(['registration_date', 'year'], axis=1) # year sonst zweimal drinne
+    
     # Droppe alle Zeilen, in denen null values vorkommen
     df = df.dropna()
 
