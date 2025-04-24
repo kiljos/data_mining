@@ -149,8 +149,6 @@ def preprocessing_pipeline():
     df = df[(df['fuel_consumption_l_100km'] >= lower_bound_fuel) & (df['fuel_consumption_l_100km'] <= upper_bound_fuel)] # damit werden ca. 240 Zeilen gelöscht
     
     # Funktion Outlier detection für Preis & Mileage 
-
-    
     def detect_outliers_iqr(df, group_col, target_col):
         outlier_flags = pd.Series(False, index=df.index)
 
@@ -168,7 +166,6 @@ def preprocessing_pipeline():
             outlier_flags.loc[group[mask].index] = True
 
         return outlier_flags
-    
 
     # habe nochmal überlegt ist das net data leakage? Trainingsdatensatz ehält info wie der Testdatensatz verteilt ist
     
@@ -180,10 +177,6 @@ def preprocessing_pipeline():
         (~df['outlier_model_price']) &
         (~df['outlier_model_mileage'])
     ].copy()
-    
-    # !!! TO-DO: Noch anwenden power_ps
-            # !!! TO-DO: bei power_ps nur eigener unterer Threshold 
-            # !!!! TO-DO: bei Kilometer eigener oberer Threshold
 
     def filter_models_with_min_count(df, model_col='model', min_count=100):
         '''Diese Funktion filtert den DF auf die Modelle ein die in einer bestimmten
