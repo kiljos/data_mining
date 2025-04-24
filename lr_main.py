@@ -8,13 +8,17 @@ from sklearn.impute import SimpleImputer
 from sklearn.linear_model import LinearRegression
 
 import gc  # Garbage Collector zur Speicherverwaltung
-from preprocessing import preprocessing_pipeline
+from Preprocessing.preprocessing_pipeline_initial import preprocessing_pipeline
+from Preprocessing.preprocessing_pipeline_segment import preprocessing_pipeline_segment
+from Preprocessing.split import split_data
 from eval_call import evaluate_model
 
 
 
 def main():
-    X_train, X_test, y_train, y_test , X,y, categorical_features , numeric_features = preprocessing_pipeline()
+    df = preprocessing_pipeline() 
+    X_train, X_test, y_train, y_test , X,y, categorical_features , numeric_features = split_data(df)
+    print(X_train.head(5))
 
     # Preprocessing-Pipelines erstellen
     numeric_transformer = Pipeline(steps=[

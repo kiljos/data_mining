@@ -1,8 +1,8 @@
-from preprocessing_pipeline_initial import preprocessing_pipeline
+from Preprocessing.preprocessing_pipeline_initial import preprocessing_pipeline
 import pandas as pd
 
 
-def add_segment_to_df():
+def preprocessing_pipeline_segment():
     df = preprocessing_pipeline()
     segments = pd.read_csv('df_mit_segment.csv')
     df = pd.merge(df, segments, how='left', on = ['brand', 'model'])
