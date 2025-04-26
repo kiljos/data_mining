@@ -129,7 +129,7 @@ def preprocessing_pipeline():
     df['registration_month'] = df['registration_date'].dt.month
     df['registration_year'] = df['registration_date'].dt.year
 
-    df = df.drop(['registration_date', 'year', 'offer_description'], axis=1) # year sonst zweimal drinne
+    df = df.drop(['registration_date', 'year','power_kw', 'offer_description'], axis=1) # year sonst zweimal drinne
     
     # Droppe alle Zeilen, in denen null values vorkommen
     df = df.dropna()
