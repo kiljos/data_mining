@@ -1,9 +1,7 @@
-from Preprocessing.preprocessing_pipeline_initial import preprocessing_pipeline
 import pandas as pd
 
 
-def preprocessing_pipeline_segment():
-    df = preprocessing_pipeline()
+def preprocessing_pipeline_segment(df):
     segments = pd.read_csv('df_mit_segment.csv')
     df = pd.merge(df, segments, how='left', on = ['brand', 'model'])
     if df['segment'].isnull().sum() > 0: 

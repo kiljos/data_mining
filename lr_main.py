@@ -17,6 +17,7 @@ from eval_call import evaluate_model
 
 def main():
     df = preprocessing_pipeline() 
+    df = preprocessing_pipeline_segment(df)
     X_train, X_test, y_train, y_test , X,y, categorical_features , numeric_features = split_data(df)
     print(X_train.head(5))
 
