@@ -116,7 +116,7 @@ def preprocessing_pipeline():
     # Fixe wo model = brand, versuche eindeutig Model zuzuweisen sonst droppen 
     df = fix_model_brand_conflicts(df) 
 
-    df.drop(columns=['fuel_consumption_g_km'])
+    df.drop(columns=['fuel_consumption_g_km'], axis = 1)
         
     # Spalten ins numerische umwandeln
     for col in ['power_ps', 'power_kw']:
@@ -133,62 +133,6 @@ def preprocessing_pipeline():
     
     # Droppe alle Zeilen, in denen null values vorkommen
     df = df.dropna()
-
-    # Outlier müssen wir nochmal nachfragen in der Coaching Session
-    ''''
-    # Outlier Detection für fuel
-    q1_fuel= df['fuel_consumption_l_100km'].quantile(0.25)
-    q3_fuel=df['fuel_consumption_l_100km'].quantile(0.75)
-    iqr_fuel=q3_fuel-q1_fuel    
-    lower_bound_fuel= q1_fuel - 1.5 * iqr_fuel
-    upper_bound_fuel=22.0 # hier bisher Fixwert, da viele der Luxusautos wie Bentleys/ Lamborghini Aventadors etc. weit über q3_fuel + 1.5*iqr (der wäre 9.5)
-    df = df[(df['fuel_consumption_l_100km'] >= lower_bound_fuel) & (df['fuel_consumption_l_100km'] <= upper_bound_fuel)] # damit werden ca. 240 Zeilen gelöscht
-    
-    # Funktion Outlier detection für Preis & Mileage 
-
-    
-    def detect_outliers_iqr(df, group_col, target_col):
-        outlier_flags = pd.Series(False, index=df.index)
-
-        for name, group in df.groupby(group_col):
-            if len(group) < 2:
-                continue
-
-            q1 = group[target_col].quantile(0.25)
-            q3 = group[target_col].quantile(0.75)
-            iqr = q3 - q1
-            lower = q1 - 1.5 * iqr
-            upper = q3 + 1.5 * iqr
-
-            mask = (group[target_col] < lower) | (group[target_col] > upper)
-            outlier_flags.loc[group[mask].index] = True
-
-        return outlier_flags
-    
-
-    # habe nochmal überlegt ist das net data leakage? Trainingsdatensatz ehält info wie der Testdatensatz verteilt ist
-    
-    df['outlier_model_price'] = detect_outliers_iqr(df, ['brand', 'model'], 'price_in_euro')
-    df['outlier_model_mileage'] = detect_outliers_iqr(df, ['brand', 'model'], 'mileage_in_km')
-
-    # Entferne alle Rows, die bei Preis & Mileage ein Outlier sind
-    df = df[
-        (~df['outlier_model_price']) &
-        (~df['outlier_model_mileage'])
-    ].copy()
-    '''
-    
-
-    def filter_models_with_min_count(df, model_col='model', min_count=100):
-        '''Diese Funktion filtert den DF auf die Modelle ein die in einer bestimmten
-        Frequenz vorkommen'''
-        model_counts = df[model_col].value_counts()
-        models_over_threshold = model_counts[model_counts >= min_count].index
-        df_filtered = df[df[model_col].isin(models_over_threshold)]
-        return df_filtered
-    
-    # Nur die Modelle, die mind. 100 mal vorkommen
-    df = filter_models_with_min_count(df, 'model', 100)
    
     return df 
 
