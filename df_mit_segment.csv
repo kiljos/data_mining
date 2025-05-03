@@ -1,226 +1,871 @@
 brand,model,segment
+alfa-romeo,Alfa Romeo GTV,Sportwagen
+alfa-romeo,Alfa Romeo 164,Obere Mittelklasse
+alfa-romeo,Alfa Romeo Spider,Sportwagen
+alfa-romeo,Alfa Romeo 145,Kompaktklasse
+alfa-romeo,Alfa Romeo 155,Mittelklasse
+alfa-romeo,Alfa Romeo 146,Kompaktklasse
+alfa-romeo,Alfa Romeo 156,Mittelklasse
+alfa-romeo,Alfa Romeo 166,Obere Mittelklasse
+alfa-romeo,Alfa Romeo 147,Kompaktklasse
+alfa-romeo,Alfa Romeo Alfa 6,Obere Mittelklasse
+alfa-romeo,Alfa Romeo GT,Sportwagen
+alfa-romeo,Alfa Romeo 159,Mittelklasse
+alfa-romeo,Alfa Romeo Brera,Sportwagen
+alfa-romeo,Alfa Romeo Sportwagon,Mittelklasse
+alfa-romeo,Alfa Romeo MiTo,Kleinwagen
+alfa-romeo,Alfa Romeo 8C,Supersportwagen
 alfa-romeo,Alfa Romeo Giulietta,Kompaktklasse
+alfa-romeo,Alfa Romeo 4C,Sportwagen
 alfa-romeo,Alfa Romeo Giulia,Mittelklasse
 alfa-romeo,Alfa Romeo Stelvio,SUV
+alfa-romeo,Alfa Romeo Tonale,SUV
+aston-martin,Aston Martin DB7,Sportwagen
+aston-martin,Aston Martin Vanquish,Supersportwagen
+aston-martin,Aston Martin DB9,Sportwagen
+aston-martin,Aston Martin V8,Sportwagen
+aston-martin,Aston Martin Vantage,Supersportwagen
+aston-martin,Aston Martin DBS,Supersportwagen
+aston-martin,Aston Martin Rapide,Luxusklasse
+aston-martin,Aston Martin Virage,Sportwagen
+aston-martin,Aston Martin DB11,Sportwagen
+aston-martin,Aston Martin DBX,SUV
 audi,Audi A4,Mittelklasse
 audi,Audi A3,Kompaktklasse
+audi,Audi A6,Obere Mittelklasse
 audi,Audi A8,Luxusklasse
+audi,Audi Cabriolet,Sportwagen
+audi,Audi 80,Mittelklasse
 audi,Audi TT,Sportwagen
 audi,Audi S6,Obere Mittelklasse
-audi,Audi A6,Obere Mittelklasse
 audi,Audi S3,Kompaktklasse
+audi,Audi S4,Mittelklasse
+audi,Audi S8,Luxusklasse
+audi,Audi A2,Kleinwagen
+audi,Audi Allroad,Obere Mittelklasse
+audi,Audi RS4,Mittelklasse
 audi,Audi A6 allroad,Obere Mittelklasse
 audi,Audi RS6,Obere Mittelklasse
 audi,Audi A5,Mittelklasse
 audi,Audi Q7,SUV
+audi,Audi QUATTRO,Sportwagen
 audi,Audi S5,Sportwagen
 audi,Audi R8,Sportwagen
+audi,Audi TTS,Sportwagen
 audi,Audi Q5,SUV
 audi,Audi A4 allroad,Mittelklasse
+audi,Audi TT RS,Sportwagen
 audi,Audi A1,Kleinwagen
 audi,Audi A7,Obere Mittelklasse
+audi,Audi RS5,Sportwagen
 audi,Audi Q3,SUV
 audi,Audi RS3,Kompaktklasse
+audi,Audi S7,Obere Mittelklasse
 audi,Audi SQ5,SUV
+audi,Audi RS Q3,SUV
+audi,Audi RS7,Obere Mittelklasse
+audi,Audi S1,Kleinwagen
 audi,Audi SQ7,SUV
 audi,Audi Q2,SUV
+audi,Audi Q8,SUV
+audi,Audi SQ8,SUV
+audi,Audi SQ2,SUV
+audi,Audi RS Q8,SUV
+audi,Audi e-tron GT,Sportwagen
+bentley,Bentley Continental,Luxusklasse
+bentley,Bentley Azure,Luxusklasse
+bentley,Bentley Arnage,Luxusklasse
+bentley,Bentley Continental GT,Luxusklasse
+bentley,Bentley Flying Spur,Luxusklasse
+bentley,Bentley Continental GTC,Luxusklasse
+bentley,Bentley Brooklands,Luxusklasse
+bentley,Bentley Mulsanne,Luxusklasse
+bentley,Bentley Bentayga,SUV
 bmw,BMW 320,Mittelklasse
+bmw,BMW 540,Obere Mittelklasse
 bmw,BMW 520,Obere Mittelklasse
 bmw,BMW 318,Mittelklasse
+bmw,BMW Z3,Sportwagen
 bmw,BMW 316,Mittelklasse
-bmw,BMW 540,Obere Mittelklasse
+bmw,BMW 528,Obere Mittelklasse
+bmw,BMW 523,Obere Mittelklasse
+bmw,BMW 750,Luxusklasse
+bmw,BMW 328,Mittelklasse
+bmw,BMW 728,Luxusklasse
+bmw,BMW M3,Sportwagen
+bmw,BMW Z3 M,Sportwagen
+bmw,BMW 725,Luxusklasse
+bmw,BMW 525,Obere Mittelklasse
+bmw,BMW 323,Mittelklasse
+bmw,BMW 740,Luxusklasse
+bmw,BMW 735,Luxusklasse
+bmw,BMW M5,Mittelklasse
+bmw,BMW 730,Luxusklasse
+bmw,BMW 550,Obere Mittelklasse
+bmw,BMW 840,Obere Mittelklasse
+bmw,BMW 325,Mittelklasse
 bmw,BMW 535,Obere Mittelklasse
 bmw,BMW 330,Mittelklasse
-bmw,BMW 525,Obere Mittelklasse
-bmw,BMW X5,SUV
+bmw,BMW Z8,Sportwagen
 bmw,BMW 530,Obere Mittelklasse
-bmw,BMW 325,Mittelklasse
-bmw,BMW 730,Luxusklasse
+bmw,BMW X5,SUV
+bmw,BMW 745,Luxusklasse
+bmw,BMW Z4,Sportwagen
 bmw,BMW 116,Kompaktklasse
 bmw,BMW X3,SUV
-bmw,BMW Z4,Sportwagen
+bmw,BMW 760,Luxusklasse
+bmw,BMW 645,Sportwagen
+bmw,BMW 220,Kompaktklasse
 bmw,BMW 120,Kompaktklasse
 bmw,BMW 118,Kompaktklasse
+bmw,BMW 545,Obere Mittelklasse
+bmw,BMW 630,Obere Mittelklasse
+bmw,BMW Z4 M,Sportwagen
+bmw,BMW X3 M,SUV
 bmw,BMW 335,Mittelklasse
-bmw,BMW 550,Obere Mittelklasse
+bmw,BMW M6,Sportwagen
+bmw,BMW 130,Kompaktklasse
+bmw,BMW 650,Obere Mittelklasse
+bmw,BMW 635,Sportwagen
+bmw,BMW 123,Kompaktklasse
+bmw,BMW 125,Kompaktklasse
+bmw,BMW 135,Kompaktklasse
 bmw,BMW X6,SUV
 bmw,BMW X1,SUV
+bmw,BMW X6 M,SUV
+bmw,BMW 128,Kompaktklasse
 bmw,BMW X5 M,SUV
 bmw,BMW 640,Obere Mittelklasse
-bmw,BMW 220,Kompaktklasse
+bmw,BMW 1er M Coupé,Sportwagen
+bmw,BMW 114,Kompaktklasse
+bmw,BMW M550,Obere Mittelklasse
+bmw,BMW 435,Sportwagen
 bmw,BMW 420,Mittelklasse
-bmw,BMW X4,SUV
-bmw,BMW 430,Mittelklasse
-bmw,BMW 218,Kompaktklasse
+bmw,BMW 518,Obere Mittelklasse
+bmw,BMW 428,Sportwagen
 bmw,BMW M4,Sportwagen
+bmw,BMW 235,Kompaktklasse
+bmw,BMW 425,Sportwagen
+bmw,BMW X4,SUV
+bmw,BMW 430,Sportwagen
+bmw,BMW 218,Kompaktklasse
+bmw,BMW 228,Sportwagen
+bmw,BMW M2,Sportwagen
+bmw,BMW 225,Van
+bmw,BMW 418,Mittelklasse
+bmw,BMW 216,Van
+bmw,BMW 340,Mittelklasse
+bmw,BMW X4 M,SUV
+bmw,BMW 240,Kompaktklasse
+bmw,BMW 140,Kompaktklasse
+bmw,BMW 440,Sportwagen
+bmw,BMW 230,Sportwagen
+bmw,BMW M1,Sportwagen
+bmw,BMW i8,Sportwagen
 bmw,BMW X2,SUV
+bmw,BMW M850,Sportwagen
+bmw,BMW X2 M,SUV
+bmw,BMW X7,SUV
+bmw,BMW M8,Sportwagen
+bmw,BMW 850,Luxusklasse
+bmw,BMW X7 M,SUV
+bmw,BMW 620,Obere Mittelklasse
+bmw,BMW 223,Kompaktklasse
+bmw,BMW 214,Kleinwagen
+cadillac,Cadillac Eldorado,Luxusklasse
+cadillac,Cadillac STS,Obere Mittelklasse
+cadillac,Cadillac Seville,Obere Mittelklasse
+cadillac,Cadillac Escalade,SUV
+cadillac,Cadillac CTS,Mittelklasse
+cadillac,Cadillac SRX,SUV
+cadillac,Cadillac BLS,Mittelklasse
+cadillac,Cadillac ATS,Mittelklasse
+cadillac,Cadillac XT5,SUV
+cadillac,Cadillac CT6,Obere Mittelklasse
+cadillac,Cadillac XT4,SUV
+cadillac,Cadillac XT6,SUV
+chevrolet,Chevrolet Kalos,Kleinwagen
+chevrolet,Chevrolet Matiz,Kleinwagen
+chevrolet,Chevrolet Spark,Kleinwagen
+chevrolet,Chevrolet Orlando,Van
+chevrolet,Chevrolet Captiva,SUV
+chevrolet,Chevrolet Aveo,Kleinwagen
+chevrolet,Chevrolet Trax,SUV
+chevrolet,Chevrolet Cruze,Kompaktklasse
+chevrolet,Chevrolet Camaro,Sportwagen
+chevrolet,Chevrolet Corvette,Sportwagen
+chevrolet,Chevrolet Tahoe,SUV
+chevrolet,Chevrolet Silverado,SUV
+chevrolet,Chevrolet Suburban,SUV
+chevrolet,Chevrolet Blazer,SUV
+chevrolet,Chevrolet Trailblazer,SUV
+chevrolet,Chevrolet Colorado,SUV
+chrysler,Chrysler Pacifica,Van
 citroen,Citroen C3,Kleinwagen
+citroen,Citroen C8,Van
+citroen,Citroen C5,Mittelklasse
 citroen,Citroen C4,Kompaktklasse
 citroen,Citroen C1,Kleinwagen
-citroen,Citroen Berlingo,Van
-citroen,Citroen Jumpy,Van
+citroen,Citroen C2,Kleinwagen
+citroen,Citroen Xsara Picasso,Van
+citroen,Citroen Xsara,Kompaktklasse
 citroen,Citroen Jumper,Van
+citroen,Citroen Berlingo,Van
+citroen,Citroen C4 Picasso,Van
+citroen,Citroen Jumpy,Van
+citroen,Citroen C-Crosser,SUV
+citroen,Citroen Grand C4 Picasso,Van
+citroen,Citroen C6,Obere Mittelklasse
+citroen,Citroen C3 Picasso,Van
+citroen,Citroen Nemo,Van
+citroen,Citroen DS3,Kleinwagen
+citroen,Citroen DS4,Kompaktklasse
+citroen,Citroen DS5,Kompaktklasse
+citroen,Citroen Grand C4 SpaceTourer,Van
+citroen,Citroen C4 Aircross,SUV
 citroen,Citroen C4 Cactus,Kleinwagen
+citroen,Citroen C4 SpaceTourer,Van
+citroen,Citroen Spacetourer,Van
 citroen,Citroen C3 Aircross,SUV
+citroen,Citroen C-Elysée,Kompaktklasse
 citroen,Citroen C5 Aircross,SUV
+citroen,Citroen DS,Mittelklasse
+citroen,Citroen C5 X,Mittelklasse
 dacia,Dacia Sandero,Kleinwagen
 dacia,Dacia Logan,Kleinwagen
 dacia,Dacia Duster,SUV
 dacia,Dacia Lodgy,Van
 dacia,Dacia Dokker,Van
+dacia,Dacia Pick Up,SUV
 dacia,Dacia Jogger,Van
+daewoo,Daewoo Nubira,Mittelklasse
+daewoo,Daewoo Matiz,Kleinwagen
+daewoo,Daewoo Lanos,Kleinwagen
+daewoo,Daewoo Rezzo,Van
+daewoo,Daewoo Kalos,Kleinwagen
+daewoo,Daewoo Evanda,Mittelklasse
+daewoo,Daewoo Lacetti,Kompaktklasse
+daihatsu,Daihatsu Cuore,Kleinwagen
+daihatsu,Daihatsu Applause,Mittelklasse
+daihatsu,Daihatsu Move,Kleinwagen
+daihatsu,Daihatsu Terios,SUV
+daihatsu,Daihatsu Sirion,Kleinwagen
+daihatsu,Daihatsu YRV,Kleinwagen
+daihatsu,Daihatsu Copen,Kleinwagen
+daihatsu,Daihatsu Trevis,Kleinwagen
+daihatsu,Daihatsu Materia,Kleinwagen
+daihatsu,Daihatsu Charade,Kleinwagen
+dodge,Dodge Caliber,Kompaktklasse
+dodge,Dodge Nitro,SUV
+dodge,Dodge Journey,SUV
+dodge,Dodge Avenger,Mittelklasse
+dodge,Dodge Charger,Mittelklasse
+dodge,Dodge Durango,SUV
+dodge,Dodge RAM,SUV
+dodge,Dodge Challenger,Sportwagen
+dodge,Dodge Grand Caravan,Van
+ferrari,Ferrari F355,Sportwagen
+ferrari,Ferrari 456,Sportwagen
+ferrari,Ferrari 512,Supersportwagen
+ferrari,Ferrari 550,Supersportwagen
+ferrari,Ferrari 360,Sportwagen
+ferrari,Ferrari 575,Supersportwagen
+ferrari,Ferrari 612,Supersportwagen
+ferrari,Ferrari F430,Supersportwagen
+ferrari,Ferrari 599,Supersportwagen
+ferrari,Ferrari 430 Scuderia,Supersportwagen
+ferrari,Ferrari California,Sportwagen
+ferrari,Ferrari 458,Supersportwagen
+ferrari,Ferrari FF,Sportwagen
+ferrari,Ferrari F12,Supersportwagen
+ferrari,Ferrari 488,Supersportwagen
+ferrari,Ferrari GTC4 Lusso,Supersportwagen
+ferrari,Ferrari Portofino,Sportwagen
+ferrari,Ferrari 812,Supersportwagen
+ferrari,Ferrari F8 Spider,Supersportwagen
+ferrari,Ferrari F8 Tributo,Supersportwagen
+ferrari,Ferrari Roma,Sportwagen
+ferrari,Ferrari SF90 Stradale,Supersportwagen
 fiat,Fiat Doblo,Van
+fiat,Fiat Punto,Kleinwagen
+fiat,Fiat New Panda,Kleinwagen
+fiat,Fiat Stilo,Kompaktklasse
 fiat,Fiat Panda,Kleinwagen
+fiat,Fiat Ulysse,Van
+fiat,Fiat Idea,Van
+fiat,Fiat Grande Punto,Kleinwagen
+fiat,Fiat Scudo,Van
+fiat,Fiat Multipla,Van
+fiat,Fiat Bravo,Kompaktklasse
+fiat,Fiat Sedici,SUV
 fiat,Fiat 500,Kleinwagen
 fiat,Fiat Ducato,Van
+fiat,Fiat 500L,Van
+fiat,Fiat Qubo,Van
+fiat,Fiat Fiorino,Van
+fiat,Fiat Punto Evo,Kleinwagen
 fiat,Fiat 500C,Kleinwagen
+fiat,Fiat Linea,Mittelklasse
+fiat,Fiat Seicento,Kleinwagen
+fiat,Fiat Croma,Mittelklasse
+fiat,Fiat Freemont,Van
 fiat,Fiat 500X,SUV
 fiat,Fiat Tipo,Kompaktklasse
+fiat,Fiat Fullback,Mittelklasse
+fiat,Fiat Talento,Van
+fiat,Fiat 124 Spider,Sportwagen
+fiat,Fiat 595 Abarth,Kleinwagen
+ford,Ford Probe,Sportwagen
+ford,Ford Escort,Kompaktklasse
+ford,Ford Mustang,Sportwagen
+ford,Ford Transit,Van
 ford,Ford Focus,Kompaktklasse
 ford,Ford Mondeo,Mittelklasse
 ford,Ford Fiesta,Kleinwagen
-ford,Ford Ka/Ka+,Kleinwagen
 ford,Ford Galaxy,Van
+ford,Ford Ka/Ka+,Kleinwagen
 ford,Ford Fusion,Mittelklasse
-ford,Ford Transit,Van
+ford,Ford Maverick,SUV
+ford,Ford Streetka,Kleinwagen
+ford,Ford F 150,SUV
 ford,Ford Puma,SUV
+ford,Ford Focus C-Max,Van
 ford,Ford Transit Connect,Van
+ford,Ford Tourneo,Van
 ford,Ford C-Max,Van
-ford,Ford S-Max,Van
 ford,Ford Tourneo Connect,Van
-ford,Ford Kuga,SUV
-ford,Ford Mustang,Sportwagen
+ford,Ford S-Max,Van
 ford,Ford Ranger,SUV
+ford,Ford Transit Bus,Van
+ford,Ford Focus CC,Kompaktklasse
+ford,Ford Kuga,SUV
 ford,Ford Grand C-Max,Van
-ford,Ford B-Max,Van
 ford,Ford Edge,SUV
-ford,Ford Tourneo Custom,Van
+ford,Ford B-Max,Van
 ford,Ford Transit Custom,Van
+ford,Ford Tourneo Custom,Van
+ford,Ford Explorer,SUV
+ford,Ford Tourneo Courier,Van
 ford,Ford EcoSport,SUV
-honda,Honda CR-V,SUV
+ford,Ford Grand Tourneo,Van
+ford,Ford F 250,SUV
+ford,Ford Transit Courier,Van
+ford,Ford M,Mittelklasse
+ford,Ford F 350,SUV
+ford,Ford Taurus,Mittelklasse
+ford,Ford Courier,Van
+ford,Ford GT,Supersportwagen
+ford,Ford Ranger Raptor,SUV
+ford,Ford Bronco,SUV
 honda,Honda Civic,Kompaktklasse
-hyundai,Hyundai TUCSON,SUV
+honda,Honda CR-V,SUV
+honda,Honda Accord,Mittelklasse
+honda,Honda Jazz,Kleinwagen
+honda,Honda Stream,Van
+honda,Honda HR-V,SUV
 hyundai,Hyundai SANTA FE,SUV
+hyundai,Hyundai ELANTRA,Mittelklasse
+hyundai,Hyundai Matrix,Van
+hyundai,Hyundai Terracan,SUV
+hyundai,Hyundai TUCSON,SUV
+hyundai,Hyundai SONATA,Mittelklasse
+hyundai,Hyundai H-1,Van
+hyundai,Hyundai Getz,Kleinwagen
+hyundai,Hyundai Atos,Kleinwagen
+hyundai,Hyundai Coupe,Sportwagen
+hyundai,Hyundai ACCENT,Kleinwagen
 hyundai,Hyundai i10,Kleinwagen
 hyundai,Hyundai i30,Kompaktklasse
 hyundai,Hyundai i20,Kleinwagen
 hyundai,Hyundai iX35,SUV
-hyundai,Hyundai iX20,Kleinwagen
+hyundai,Hyundai iX20,Van
+hyundai,Hyundai iX55,SUV
 hyundai,Hyundai i40,Mittelklasse
+hyundai,Hyundai Genesis Coupe,Sportwagen
+hyundai,Hyundai VELOSTER,Kompaktklasse
+hyundai,Hyundai Grand Santa Fe,SUV
+hyundai,Hyundai Genesis,Obere Mittelklasse
+hyundai,Hyundai H 350,Van
 hyundai,Hyundai KONA,SUV
+hyundai,Hyundai IONIQ,Kompaktklasse
+hyundai,Hyundai BAYON,Kleinwagen
+hyundai,Hyundai STARIA,Van
+infiniti,Infiniti FX,SUV
+infiniti,Infiniti G37,Mittelklasse
+infiniti,Infiniti EX35,SUV
+infiniti,Infiniti EX30,SUV
+infiniti,Infiniti M37,Obere Mittelklasse
+infiniti,Infiniti QX30,SUV
+infiniti,Infiniti Q70,Obere Mittelklasse
+infiniti,Infiniti M30,Sportwagen
+infiniti,Infiniti QX70,SUV
+infiniti,Infiniti Q50,Mittelklasse
+infiniti,Infiniti QX50,SUV
+infiniti,Infiniti Q30,Kompaktklasse
+infiniti,Infiniti Q60,Sportwagen
+infiniti,Infiniti QX60,SUV
+infiniti,Infiniti QX80,SUV
+isuzu,Isuzu Trooper,SUV
+isuzu,Isuzu D-Max,SUV
+jaguar,Jaguar XKR,Sportwagen
+jaguar,Jaguar X-Type,Mittelklasse
 jaguar,Jaguar XF,Obere Mittelklasse
+jaguar,Jaguar XJ,Luxusklasse
+jaguar,Jaguar XK,Sportwagen
 jaguar,Jaguar F-Type,Sportwagen
 jaguar,Jaguar F-Pace,SUV
 jaguar,Jaguar XE,Mittelklasse
 jaguar,Jaguar E-Pace,SUV
-jeep,Jeep Wrangler,SUV
 jeep,Jeep Grand Cherokee,SUV
+jeep,Jeep Cherokee,SUV
+jeep,Jeep Wrangler,SUV
+jeep,Jeep Commander,SUV
 jeep,Jeep Compass,SUV
+jeep,Jeep Patriot,SUV
 jeep,Jeep Renegade,SUV
+jeep,Jeep Gladiator,SUV
+jeep,Jeep Avenger,SUV
+jeep,Jeep Wagoneer,SUV
+kia,Kia Shuma,Kompaktklasse
 kia,Kia Sportage,SUV
 kia,Kia Rio,Kleinwagen
-kia,Kia Sorento,SUV
+kia,Kia Cerato,Kompaktklasse
+kia,Kia Opirus,Obere Mittelklasse
 kia,Kia Picanto,Kleinwagen
+kia,Kia Sorento,SUV
 kia,Kia Ceed / cee'd,Kompaktklasse
+kia,Kia Carnival,Van
 kia,Kia ProCeed / pro_cee'd,Kompaktklasse
+kia,Kia Carens,Van
+kia,Kia Soul,Kleinwagen
 kia,Kia Ceed SW / cee'd SW,Kompaktklasse
-kia,Kia Venga,Van
+kia,Kia Venga,Kleinwagen
+kia,Kia Optima,Mittelklasse
+kia,Kia Niro,SUV
 kia,Kia Stonic,Kleinwagen
+kia,Kia Stinger,Mittelklasse
 kia,Kia XCeed,Kompaktklasse
+lada,Lada Nova,Kompaktklasse
+lada,Lada Niva,SUV
+lada,Lada 111,Mittelklasse
+lada,Lada Kalina,Kleinwagen
+lada,Lada Priora,Kleinwagen
+lada,Lada Taiga,SUV
+lada,Lada Granta,Kleinwagen
+lada,Lada Urban,Kleinwagen
+lada,Lada Vesta,Mittelklasse
+lada,Lada 4x4,SUV
+lamborghini,Lamborghini Murciélago,Supersportwagen
+lamborghini,Lamborghini Gallardo,Supersportwagen
+lamborghini,Lamborghini Aventador,Supersportwagen
+lamborghini,Lamborghini Huracan,Supersportwagen
+lamborghini,Lamborghini Urus,SUV
+lancia,Lancia Y,Kleinwagen
+lancia,Lancia Delta,Kompaktklasse
+lancia,Lancia Kappa,Mittelklasse
+lancia,Lancia Ypsilon,Kleinwagen
+lancia,Lancia Lybra,Mittelklasse
+lancia,Lancia ZETA,Van
+lancia,Lancia Thesis,Obere Mittelklasse
+lancia,Lancia Phedra,Van
+lancia,Lancia MUSA,Van
+lancia,Lancia Thema,Obere Mittelklasse
+lancia,Lancia Voyager,Van
+lancia,Lancia Flavia,Mittelklasse
 land-rover,Land Rover Defender,SUV
 land-rover,Land Rover Discovery,SUV
+land-rover,Land Rover Freelander,SUV
 land-rover,Land Rover Range Rover Sport,SUV
 land-rover,Land Rover Range Rover Evoque,SUV
 land-rover,Land Rover Range Rover,SUV
 land-rover,Land Rover Discovery Sport,SUV
 land-rover,Land Rover Range Rover Velar,SUV
 maserati,Maserati Ghibli,Obere Mittelklasse
+maserati,Maserati Quattroporte,Luxusklasse
+maserati,Maserati 3200,Sportwagen
+maserati,Maserati Spyder,Sportwagen
+maserati,Maserati 4200,Sportwagen
+maserati,Maserati Coupe,Sportwagen
+maserati,Maserati GranSport,Sportwagen
+maserati,Maserati GranTurismo,Sportwagen
+maserati,Maserati GranCabrio,Sportwagen
 maserati,Maserati Levante,SUV
+maserati,Maserati MC20,Supersportwagen
+maserati,Maserati Grecale,SUV
 mazda,Mazda MX-5,Sportwagen
+mazda,Mazda 323,Kompaktklasse
 mazda,Mazda 3,Kompaktklasse
 mazda,Mazda 2,Kleinwagen
+mazda,Mazda Tribute,SUV
 mazda,Mazda 6,Mittelklasse
+mazda,Mazda 5,Van
+mazda,Mazda RX-8,Sportwagen
+mazda,Mazda CX-7,SUV
+mazda,Mazda BT-50,SUV
 mazda,Mazda CX-5,SUV
 mazda,Mazda CX-3,SUV
 mazda,Mazda CX-30,SUV
-mercedes-benz,Mercedes-Benz C 200,Mittelklasse
-mercedes-benz,Mercedes-Benz C 180,Mittelklasse
-mercedes-benz,Mercedes-Benz E 200,Obere Mittelklasse
+mazda,Mazda CX-60,SUV
+mercedes-benz,Mercedes-Benz SL 500,Sportwagen
 mercedes-benz,Mercedes-Benz E 220,Obere Mittelklasse
-mercedes-benz,Mercedes-Benz CLK 200,Mittelklasse
-mercedes-benz,Mercedes-Benz SLK 200,Sportwagen
-mercedes-benz,Mercedes-Benz C 220,Mittelklasse
+mercedes-benz,Mercedes-Benz SL 280,Sportwagen
+mercedes-benz,Mercedes-Benz SL 320,Sportwagen
+mercedes-benz,Mercedes-Benz 200,Mittelklasse
 mercedes-benz,Mercedes-Benz E 320,Obere Mittelklasse
-mercedes-benz,Mercedes-Benz A 160,Kompaktklasse
+mercedes-benz,Mercedes-Benz G 300,SUV
+mercedes-benz,Mercedes-Benz CL 420,Luxusklasse
+mercedes-benz,Mercedes-Benz C 180,Mittelklasse
 mercedes-benz,Mercedes-Benz S 500,Luxusklasse
-mercedes-benz,Mercedes-Benz Vito,Van
-mercedes-benz,Mercedes-Benz C 43 AMG,Mittelklasse
-mercedes-benz,Mercedes-Benz A 170,Kompaktklasse
-mercedes-benz,Mercedes-Benz V 220,Van
-mercedes-benz,Mercedes-Benz Sprinter,Van
+mercedes-benz,Mercedes-Benz C 200,Mittelklasse
+mercedes-benz,Mercedes-Benz E 250,Obere Mittelklasse
+mercedes-benz,Mercedes-Benz E 200,Obere Mittelklasse
+mercedes-benz,Mercedes-Benz C 220,Mittelklasse
+mercedes-benz,Mercedes-Benz S 600,Luxusklasse
+mercedes-benz,Mercedes-Benz C 250,Mittelklasse
+mercedes-benz,Mercedes-Benz G 320,SUV
+mercedes-benz,Mercedes-Benz SL 600,Sportwagen
 mercedes-benz,Mercedes-Benz S 350,Luxusklasse
+mercedes-benz,Mercedes-Benz C 280,Mittelklasse
+mercedes-benz,Mercedes-Benz E 420,Obere Mittelklasse
+mercedes-benz,Mercedes-Benz E 300,Obere Mittelklasse
+mercedes-benz,Mercedes-Benz S 300,Luxusklasse
+mercedes-benz,Mercedes-Benz S 320,Luxusklasse
+mercedes-benz,Mercedes-Benz Sprinter,Van
+mercedes-benz,Mercedes-Benz E 230,Mittelklasse
+mercedes-benz,Mercedes-Benz SLK 200,Sportwagen
+mercedes-benz,Mercedes-Benz E 280,Obere Mittelklasse
+mercedes-benz,Mercedes-Benz SLK 230,Sportwagen
+mercedes-benz,Mercedes-Benz CLK 200,Sportwagen
+mercedes-benz,Mercedes-Benz V 230,Van
+mercedes-benz,Mercedes-Benz CLK 230,Sportwagen
+mercedes-benz,Mercedes-Benz CL 500,Luxusklasse
+mercedes-benz,Mercedes-Benz CLK 320,Mittelklasse
+mercedes-benz,Mercedes-Benz C 230,Mittelklasse
+mercedes-benz,Mercedes-Benz CL 600,Luxusklasse
+mercedes-benz,Mercedes-Benz E 240,Obere Mittelklasse
+mercedes-benz,Mercedes-Benz A 140,Kompaktklasse
+mercedes-benz,Mercedes-Benz A 160,Kompaktklasse
+mercedes-benz,Mercedes-Benz ML 320,SUV
+mercedes-benz,Mercedes-Benz G 500,SUV
+mercedes-benz,Mercedes-Benz E 55 AMG,Obere Mittelklasse
+mercedes-benz,Mercedes-Benz C 43 AMG,Mittelklasse
+mercedes-benz,Mercedes-Benz C 240,Mittelklasse
+mercedes-benz,Mercedes-Benz Marco Polo,Van
+mercedes-benz,Mercedes-Benz G 55 AMG,SUV
+mercedes-benz,Mercedes-Benz E 430,Obere Mittelklasse
+mercedes-benz,Mercedes-Benz E 270,Obere Mittelklasse
+mercedes-benz,Mercedes-Benz Vito,Van
+mercedes-benz,Mercedes-Benz ML 430,SUV
+mercedes-benz,Mercedes-Benz S 430,Luxusklasse
+mercedes-benz,Mercedes-Benz A 170,Kompaktklasse
+mercedes-benz,Mercedes-Benz CLK 430,Sportwagen
+mercedes-benz,Mercedes-Benz 320,Mittelklasse
+mercedes-benz,Mercedes-Benz A 190,Kompaktklasse
+mercedes-benz,Mercedes-Benz C 320,Mittelklasse
+mercedes-benz,Mercedes-Benz 230,Mittelklasse
+mercedes-benz,Mercedes-Benz CLK 55 AMG,Sportwagen
+mercedes-benz,Mercedes-Benz V 280,Van
+mercedes-benz,Mercedes-Benz 500,Luxusklasse
+mercedes-benz,Mercedes-Benz S 400,Luxusklasse
+mercedes-benz,Mercedes-Benz SLK 320,Sportwagen
+mercedes-benz,Mercedes-Benz ML 270,SUV
+mercedes-benz,Mercedes-Benz S 55 AMG,Luxusklasse
+mercedes-benz,Mercedes-Benz V 220,Van
+mercedes-benz,Mercedes-Benz G 290,SUV
+mercedes-benz,Mercedes-Benz ML 55 AMG,SUV
+mercedes-benz,Mercedes-Benz SLK 32 AMG,Sportwagen
+mercedes-benz,Mercedes-Benz 600,Luxusklasse
+mercedes-benz,Mercedes-Benz SLR,Supersportwagen
+mercedes-benz,Mercedes-Benz 220,Mittelklasse
+mercedes-benz,Mercedes-Benz SL 63 AMG,Sportwagen
+mercedes-benz,Mercedes-Benz G 400,SUV
+mercedes-benz,Mercedes-Benz A 180,Kompaktklasse
+mercedes-benz,Mercedes-Benz C 32 AMG,Mittelklasse
+mercedes-benz,Mercedes-Benz CL 200,Sportwagen
+mercedes-benz,Mercedes-Benz CLC,Kompaktklasse
+mercedes-benz,Mercedes-Benz V,Van
+mercedes-benz,Mercedes-Benz C 270,Mittelklasse
+mercedes-benz,Mercedes-Benz ML 500,SUV
+mercedes-benz,Mercedes-Benz CL 55 AMG,Sportwagen
+mercedes-benz,Mercedes-Benz CLK 240,Mittelklasse
+mercedes-benz,Mercedes-Benz E 500,Obere Mittelklasse
+mercedes-benz,Mercedes-Benz Vaneo,Van
+mercedes-benz,Mercedes-Benz CLK 500,Sportwagen
+mercedes-benz,Mercedes-Benz A 210,Kompaktklasse
+mercedes-benz,Mercedes-Benz SL 55 AMG,Sportwagen
+mercedes-benz,Mercedes-Benz 180,Mittelklasse
+mercedes-benz,Mercedes-Benz SLK,Sportwagen
+mercedes-benz,Mercedes-Benz G 270,SUV
+mercedes-benz,Mercedes-Benz CLK 270,Mittelklasse
+mercedes-benz,Mercedes-Benz CL 180,Sportwagen
+mercedes-benz,Mercedes-Benz ML 400,SUV
 mercedes-benz,Mercedes-Benz SL 350,Sportwagen
+mercedes-benz,Mercedes-Benz CL 220,Mittelklasse
+mercedes-benz,Mercedes-Benz E 400,Obere Mittelklasse
 mercedes-benz,Mercedes-Benz ML 350,SUV
 mercedes-benz,Mercedes-Benz Viano,Van
-mercedes-benz,Mercedes-Benz E 350,Obere Mittelklasse
-mercedes-benz,Mercedes-Benz A 180,Kompaktklasse
+mercedes-benz,Mercedes-Benz CLK,Sportwagen
 mercedes-benz,Mercedes-Benz A 150,Kompaktklasse
-mercedes-benz,Mercedes-Benz E 400,Obere Mittelklasse
-mercedes-benz,Mercedes-Benz CLS 350,Obere Mittelklasse
 mercedes-benz,Mercedes-Benz A 200,Kompaktklasse
+mercedes-benz,Mercedes-Benz E 350,Obere Mittelklasse
+mercedes-benz,Mercedes-Benz 350,Mittelklasse
+mercedes-benz,Mercedes-Benz SLK 350,Sportwagen
+mercedes-benz,Mercedes-Benz C 55 AMG,Mittelklasse
+mercedes-benz,Mercedes-Benz CLS 55 AMG,Obere Mittelklasse
+mercedes-benz,Mercedes-Benz CLS 350,Obere Mittelklasse
+mercedes-benz,Mercedes-Benz CLS 500,Obere Mittelklasse
+mercedes-benz,Mercedes-Benz B 170,Kompaktklasse
 mercedes-benz,Mercedes-Benz B 200,Kompaktklasse
 mercedes-benz,Mercedes-Benz B 180,Kompaktklasse
+mercedes-benz,Mercedes-Benz CLK 350,Sportwagen
+mercedes-benz,Mercedes-Benz SLK 280,Sportwagen
+mercedes-benz,Mercedes-Benz C 160,Mittelklasse
+mercedes-benz,Mercedes-Benz SLK 55 AMG,Sportwagen
 mercedes-benz,Mercedes-Benz C 350,Mittelklasse
+mercedes-benz,Mercedes-Benz B 150,Kompaktklasse
+mercedes-benz,Mercedes-Benz CLK 280,Sportwagen
+mercedes-benz,Mercedes-Benz SL 65 AMG,Sportwagen
+mercedes-benz,Mercedes-Benz CLS 320,Obere Mittelklasse
+mercedes-benz,Mercedes-Benz 280,Mittelklasse
+mercedes-benz,Mercedes-Benz R 500,Van
+mercedes-benz,Mercedes-Benz S 450,Luxusklasse
+mercedes-benz,Mercedes-Benz ML 280,SUV
+mercedes-benz,Mercedes-Benz R 350,Van
+mercedes-benz,Mercedes-Benz R 320,Van
+mercedes-benz,Mercedes-Benz S 65 AMG,Luxusklasse
+mercedes-benz,Mercedes-Benz S 420,Luxusklasse
 mercedes-benz,Mercedes-Benz E 63 AMG,Obere Mittelklasse
-mercedes-benz,Mercedes-Benz E 300,Obere Mittelklasse
-mercedes-benz,Mercedes-Benz C 63 AMG,Mittelklasse
-mercedes-benz,Mercedes-Benz C 250,Mittelklasse
-mercedes-benz,Mercedes-Benz E 250,Obere Mittelklasse
-mercedes-benz,Mercedes-Benz GLK 220,SUV
+mercedes-benz,Mercedes-Benz CL 63 AMG,Sportwagen
+mercedes-benz,Mercedes-Benz ML 420,SUV
+mercedes-benz,Mercedes-Benz CLK 63 AMG,Sportwagen
+mercedes-benz,Mercedes-Benz CLS 63 AMG,Obere Mittelklasse
+mercedes-benz,Mercedes-Benz ML 63 AMG,SUV
+mercedes-benz,Mercedes-Benz CLK 220,Mittelklasse
+mercedes-benz,Mercedes-Benz GL 420,SUV
+mercedes-benz,Mercedes-Benz 170,Mittelklasse
+mercedes-benz,Mercedes-Benz GL 320,SUV
 mercedes-benz,Mercedes-Benz C 300,Mittelklasse
+mercedes-benz,Mercedes-Benz GLC 250,SUV
+mercedes-benz,Mercedes-Benz R 280,Van
+mercedes-benz,Mercedes-Benz S 63 AMG,Luxusklasse
+mercedes-benz,Mercedes-Benz R 63 AMG,SUV
+mercedes-benz,Mercedes-Benz CL 65 AMG,Sportwagen
+mercedes-benz,Mercedes-Benz C 450,Mittelklasse
+mercedes-benz,Mercedes-Benz GLK 320,SUV
+mercedes-benz,Mercedes-Benz G 280,SUV
+mercedes-benz,Mercedes-Benz GL 450,SUV
+mercedes-benz,Mercedes-Benz C 63 AMG,Sportwagen
+mercedes-benz,Mercedes-Benz CLS 280,Obere Mittelklasse
+mercedes-benz,Mercedes-Benz GLK 280,SUV
+mercedes-benz,Mercedes-Benz GLK 350,SUV
+mercedes-benz,Mercedes-Benz GL 500,SUV
+mercedes-benz,Mercedes-Benz SL 300,Sportwagen
+mercedes-benz,Mercedes-Benz E 50 AMG,Obere Mittelklasse
+mercedes-benz,Mercedes-Benz GLK 220,SUV
+mercedes-benz,Mercedes-Benz B 160,Kompaktklasse
+mercedes-benz,Mercedes-Benz GLK 300,SUV
+mercedes-benz,Mercedes-Benz ML 450,SUV
+mercedes-benz,Mercedes-Benz GL 350,SUV
+mercedes-benz,Mercedes-Benz R 300,Van
+mercedes-benz,Mercedes-Benz ML 300,SUV
+mercedes-benz,Mercedes-Benz GLK 200,SUV
+mercedes-benz,Mercedes-Benz GLK 250,SUV
+mercedes-benz,Mercedes-Benz SLS,Sportwagen
+mercedes-benz,Mercedes-Benz G 350,SUV
+mercedes-benz,Mercedes-Benz SLK 300,Sportwagen
+mercedes-benz,Mercedes-Benz ML 250,SUV
+mercedes-benz,Mercedes-Benz SLK 250,Sportwagen
+mercedes-benz,Mercedes-Benz CLS 250,Obere Mittelklasse
 mercedes-benz,Mercedes-Benz V 250,Van
+mercedes-benz,Mercedes-Benz E 550,Obere Mittelklasse
+mercedes-benz,Mercedes-Benz V 200,Van
 mercedes-benz,Mercedes-Benz A 250,Kompaktklasse
+mercedes-benz,Mercedes-Benz B 250,Kompaktklasse
 mercedes-benz,Mercedes-Benz A 220,Kompaktklasse
 mercedes-benz,Mercedes-Benz G 63 AMG,SUV
+mercedes-benz,Mercedes-Benz G 65 AMG,SUV
+mercedes-benz,Mercedes-Benz S 550,Luxusklasse
 mercedes-benz,Mercedes-Benz B 220,Kompaktklasse
+mercedes-benz,Mercedes-Benz S 250,Luxusklasse
+mercedes-benz,Mercedes-Benz CLS,Obere Mittelklasse
 mercedes-benz,Mercedes-Benz Citan,Van
+mercedes-benz,Mercedes-Benz GL 63 AMG,SUV
 mercedes-benz,Mercedes-Benz CLA 180,Kompaktklasse
 mercedes-benz,Mercedes-Benz CLA 200,Kompaktklasse
 mercedes-benz,Mercedes-Benz CLA 250,Kompaktklasse
-mercedes-benz,Mercedes-Benz CLA 220,Mittelklasse
+mercedes-benz,Mercedes-Benz CLA 220,Kompaktklasse
+mercedes-benz,Mercedes-Benz A 45 AMG,Kompaktklasse
+mercedes-benz,Mercedes-Benz GLS 500,SUV
+mercedes-benz,Mercedes-Benz CLA 45 AMG,Kompaktklasse
 mercedes-benz,Mercedes-Benz GLA 200,SUV
+mercedes-benz,Mercedes-Benz GLA 220,SUV
+mercedes-benz,Mercedes-Benz GLA 250,SUV
+mercedes-benz,Mercedes-Benz GLA 45 AMG,SUV
 mercedes-benz,Mercedes-Benz AMG GT,Sportwagen
-mercedes-benz,Mercedes-Benz GLC 250,SUV
+mercedes-benz,Mercedes-Benz CLS 400,Obere Mittelklasse
+mercedes-benz,Mercedes-Benz S 260,Luxusklasse
+mercedes-benz,Mercedes-Benz GLS 63 AMG,SUV
+mercedes-benz,Mercedes-Benz CL,Luxusklasse
+mercedes-benz,Mercedes-Benz CLS 220,Obere Mittelklasse
+mercedes-benz,Mercedes-Benz C 400,Mittelklasse
+mercedes-benz,Mercedes-Benz GLE 63 AMG,SUV
+mercedes-benz,Mercedes-Benz GLE 500,SUV
 mercedes-benz,Mercedes-Benz GLE 350,SUV
 mercedes-benz,Mercedes-Benz GLC 220,SUV
+mercedes-benz,Mercedes-Benz GLA 180,SUV
+mercedes-benz,Mercedes-Benz GLS 400,SUV
+mercedes-benz,Mercedes-Benz SLC 43 AMG,Sportwagen
+mercedes-benz,Mercedes-Benz GLE 250,SUV
+mercedes-benz,Mercedes-Benz GLE 400,SUV
+mercedes-benz,Mercedes-Benz GLE 450,SUV
+mercedes-benz,Mercedes-Benz SL 400,Sportwagen
+mercedes-benz,Mercedes-Benz GL 400,SUV
+mercedes-benz,Mercedes-Benz GLE 43 AMG,SUV
+mercedes-benz,Mercedes-Benz G,SUV
+mercedes-benz,Mercedes-Benz E 43 AMG,Obere Mittelklasse
+mercedes-benz,Mercedes-Benz GLS 350,SUV
+mercedes-benz,Mercedes-Benz SLC 250,Sportwagen
+mercedes-benz,Mercedes-Benz SLC 200,Sportwagen
+mercedes-benz,Mercedes-Benz SLC 300,Sportwagen
+mercedes-benz,Mercedes-Benz SLC 180,Sportwagen
+mercedes-benz,Mercedes-Benz GLC 43 AMG,SUV
+mercedes-benz,Mercedes-Benz GLC 350,SUV
 mercedes-benz,Mercedes-Benz GLC 300,SUV
+mercedes-benz,Mercedes-Benz X 250,Mittelklasse
+mercedes-benz,Mercedes-Benz 250,Mittelklasse
+mercedes-benz,Mercedes-Benz S 560,Luxusklasse
+mercedes-benz,Mercedes-Benz X 220,Mittelklasse
+mercedes-benz,Mercedes-Benz GLC 63 AMG,SUV
+mercedes-benz,Mercedes-Benz GLS 450,SUV
+mercedes-benz,Mercedes-Benz CLS 450,Obere Mittelklasse
+mercedes-benz,Mercedes-Benz E 450,Obere Mittelklasse
+mercedes-benz,Mercedes-Benz X 350,SUV
+mercedes-benz,Mercedes-Benz E 53 AMG,Obere Mittelklasse
+mercedes-benz,Mercedes-Benz CLS 53 AMG,Obere Mittelklasse
+mercedes-benz,Mercedes-Benz CLS 300,Obere Mittelklasse
+mercedes-benz,Mercedes-Benz S 650,Luxusklasse
+mercedes-benz,Mercedes-Benz Maybach S-Klasse,Luxusklasse
+mercedes-benz,Mercedes-Benz GLE 300,SUV
+mercedes-benz,Mercedes-Benz GLE 53 AMG,SUV
 mercedes-benz,Mercedes-Benz V 300,Van
-mini,MINI Cooper S,Kleinwagen
+mercedes-benz,Mercedes-Benz A 35 AMG,Kompaktklasse
+mercedes-benz,Mercedes-Benz GLC 200,SUV
+mercedes-benz,Mercedes-Benz GLB 250,SUV
+mercedes-benz,Mercedes-Benz GLC 400,SUV
+mercedes-benz,Mercedes-Benz CLA 35 AMG,Kompaktklasse
+mercedes-benz,Mercedes-Benz SL 450,Sportwagen
+mercedes-benz,Mercedes-Benz GLS 580,SUV
+mercedes-benz,Mercedes-Benz GLE 580,SUV
+mercedes-benz,Mercedes-Benz GLB 200,SUV
+mercedes-benz,Mercedes-Benz GLB 220,SUV
+mercedes-benz,Mercedes-Benz GLA 35 AMG,SUV
+mercedes-benz,Mercedes-Benz GLB 180,SUV
+mercedes-benz,Mercedes-Benz GLB 35 AMG,SUV
+mercedes-benz,Mercedes-Benz T-Class,Van
+mercedes-benz,Mercedes-Benz GLS 600,SUV
+mercedes-benz,Mercedes-Benz S 580,Luxusklasse
+mercedes-benz,Mercedes-Benz SL 43 AMG,Sportwagen
 mini,MINI Cooper,Kleinwagen
+mini,MINI Cooper S,Kleinwagen
 mini,MINI Cooper Cabrio,Kleinwagen
 mini,MINI One,Kleinwagen
 mini,MINI Cooper S Cabrio,Kleinwagen
+mini,MINI One D,Kleinwagen
 mini,MINI One Cabrio,Kleinwagen
+mini,MINI Cooper D,Kleinwagen
 mini,MINI Cooper Clubman,Kompaktklasse
+mini,MINI Cooper D Clubman,Kompaktklasse
+mini,MINI Cooper S Clubman,Kompaktklasse
+mini,MINI One Clubman,Kompaktklasse
+mini,MINI John Cooper Works Clubman,Kompaktklasse
 mini,MINI Cooper S Countryman,SUV
+mini,MINI John Cooper Works Cabrio,Kleinwagen
 mini,MINI Cooper Countryman,SUV
+mini,MINI Cooper SD Clubman,Kompaktklasse
+mini,MINI One Countryman,SUV
+mini,MINI Cooper D Cabrio,Kleinwagen
+mini,MINI Cooper D Countryman,SUV
+mini,MINI Cooper SD,Kleinwagen
+mini,MINI Cooper SD Countryman,SUV
+mini,MINI One D Clubman,Kompaktklasse
+mini,MINI One D Countryman,SUV
 mini,MINI John Cooper Works,Kleinwagen
+mini,MINI Cooper S Roadster,Sportwagen
+mini,MINI Cooper Roadster,Sportwagen
+mini,MINI Cooper SD Coupe,Kleinwagen
+mini,MINI Cooper SD Roadster,Sportwagen
+mini,MINI Cooper SD Cabrio,Kleinwagen
+mini,MINI John Cooper Works Roadster,Sportwagen
+mini,MINI Cooper S Paceman,Kleinwagen
+mini,MINI John Cooper Works Countryman,SUV
+mini,MINI Cooper Coupe,Sportwagen
+mini,MINI Cooper Paceman,Kleinwagen
+mini,MINI Cooper SD Paceman,SUV
+mini,MINI Cooper S Coupe,Sportwagen
+mini,MINI John Cooper Works Paceman,Kleinwagen
+mitsubishi,Mitsubishi Galant,Mittelklasse
+mitsubishi,Mitsubishi Carisma,Kompaktklasse
+mitsubishi,Mitsubishi Space Gear,Van
 mitsubishi,Mitsubishi Space Star,Kleinwagen
+mitsubishi,Mitsubishi Space Runner,Van
+mitsubishi,Mitsubishi L200,SUV
+mitsubishi,Mitsubishi Grandis,Van
+mitsubishi,Mitsubishi Lancer,Mittelklasse
+mitsubishi,Mitsubishi Colt,Kleinwagen
+mitsubishi,Mitsubishi Outlander,SUV
 mitsubishi,Mitsubishi ASX,SUV
+mitsubishi,Mitsubishi Pajero,SUV
+mitsubishi,Mitsubishi Eclipse Cross,SUV
+mitsubishi,Mitsubishi Eclipse,Sportwagen
+nissan,Nissan Almera Tino,Van
 nissan,Nissan Micra,Kleinwagen
+nissan,Nissan Serena,Van
+nissan,Nissan Almera,Kompaktklasse
+nissan,Nissan Primastar,Van
+nissan,Nissan Primera,Mittelklasse
+nissan,Nissan Terrano,SUV
+nissan,Nissan Navara,SUV
+nissan,Nissan 350Z,Sportwagen
 nissan,Nissan X-Trail,SUV
+nissan,Nissan Note,Kleinwagen
+nissan,Nissan Pathfinder,SUV
+nissan,Nissan Murano,SUV
 nissan,Nissan Qashqai,SUV
+nissan,Nissan Patrol,SUV
+nissan,Nissan Kubistar,Van
+nissan,Nissan Pixo,Kleinwagen
+nissan,Nissan Qashqai+2,SUV
+nissan,Nissan Pick Up,SUV
+nissan,Nissan Tiida,Kompaktklasse
+nissan,Nissan Evalia,Van
 nissan,Nissan Juke,SUV
+nissan,Nissan NV200,Van
+nissan,Nissan NV400,Van
+nissan,Nissan 370Z,Sportwagen
+nissan,Nissan Pulsar,Kompaktklasse
+nissan,Nissan GT-R,Sportwagen
+nissan,Nissan NP300,SUV
+nissan,Nissan NV300,Van
+nissan,Nissan NV250,Van
 nissan,Nissan Townstar,Van
-opel,Opel Tigra,Sportwagen
-opel,Opel Vectra,Mittelklasse
-opel,Opel Astra,Kompaktklasse
+nissan,Nissan Interstar,Van
+nissan,Nissan Frontier,SUV
+opel,Opel Tigra,Kleinwagen
 opel,Opel Corsa,Kleinwagen
+opel,Opel Astra,Kompaktklasse
+opel,Opel Omega,Mittelklasse
+opel,Opel Vectra,Mittelklasse
+opel,Opel Frontera,SUV
 opel,Opel Zafira,Van
 opel,Opel Combo,Van
-opel,Opel Vivaro,Van
+opel,Opel Agila,Kleinwagen
+opel,Opel Speedster,Sportwagen
 opel,Opel Movano,Van
+opel,Opel Vivaro,Van
 opel,Opel Meriva,Van
+opel,Opel Signum,Mittelklasse
+opel,Opel Antara,SUV
+opel,Opel GT,Sportwagen
 opel,Opel Insignia,Mittelklasse
 opel,Opel Zafira Tourer,Van
 opel,Opel Mokka,SUV
@@ -228,117 +873,263 @@ opel,Opel Adam,Kleinwagen
 opel,Opel Cascada,Mittelklasse
 opel,Opel Mokka X,SUV
 opel,Opel Karl,Kleinwagen
+opel,Opel Corsa-e,Kleinwagen
 opel,Opel Grandland X,SUV
 opel,Opel Grandland,SUV
 opel,Opel Crossland X,SUV
 opel,Opel Crossland,SUV
 opel,Opel Combo Life,Van
+opel,Opel Combo-e Life,Van
+opel,Opel Zafira Life,Van
+opel,Opel Campo,SUV
+opel,Opel Mokka-E,SUV
 peugeot,Peugeot 206,Kleinwagen
+peugeot,Peugeot 807,Van
+peugeot,Peugeot 307,Kompaktklasse
 peugeot,Peugeot Partner,Van
-peugeot,Peugeot 207,Kleinwagen
-peugeot,Peugeot 308,Kompaktklasse
+peugeot,Peugeot 406,Mittelklasse
+peugeot,Peugeot 407,Mittelklasse
+peugeot,Peugeot 1007,Kleinwagen
 peugeot,Peugeot Boxer,Van
+peugeot,Peugeot 107,Kleinwagen
+peugeot,Peugeot 207,Kleinwagen
+peugeot,Peugeot 607,Obere Mittelklasse
+peugeot,Peugeot 308,Kompaktklasse
+peugeot,Peugeot 4007,SUV
+peugeot,Peugeot Expert,Van
 peugeot,Peugeot 3008,SUV
 peugeot,Peugeot 5008,SUV
+peugeot,Peugeot Bipper,Van
+peugeot,Peugeot RCZ,Sportwagen
 peugeot,Peugeot 508,Mittelklasse
 peugeot,Peugeot 208,Kleinwagen
 peugeot,Peugeot 2008,SUV
 peugeot,Peugeot 108,Kleinwagen
+peugeot,Peugeot 4008,SUV
+peugeot,Peugeot Camper,Van
+peugeot,Peugeot Traveller,Van
 peugeot,Peugeot Rifter,Van
+peugeot,Peugeot 408,Kompaktklasse
 porsche,Porsche 911,Sportwagen
+porsche,Porsche 993,Sportwagen
 porsche,Porsche Boxster,Sportwagen
+porsche,Porsche 996,Sportwagen
 porsche,Porsche Cayenne,SUV
+porsche,Porsche Targa,Sportwagen
 porsche,Porsche 997,Sportwagen
+porsche,Porsche Carrera GT,Supersportwagen
 porsche,Porsche Cayman,Sportwagen
 porsche,Porsche Panamera,Luxusklasse
 porsche,Porsche 991,Sportwagen
 porsche,Porsche Macan,SUV
+porsche,Porsche 718,Sportwagen
 porsche,Porsche 992,Sportwagen
+porsche,Porsche 718 Spyder,Sportwagen
+proton,Proton 316,Mittelklasse
+renault,Renault Megane,Kompaktklasse
 renault,Renault Kangoo,Van
 renault,Renault Scenic,Van
 renault,Renault Espace,Van
 renault,Renault Twingo,Kleinwagen
-renault,Renault Megane,Kompaktklasse
-renault,Renault Clio,Kleinwagen
-renault,Renault Trafic,Van
-renault,Renault Grand Scenic,Van
 renault,Renault Master,Van
+renault,Renault Laguna,Mittelklasse
+renault,Renault Clio,Kleinwagen
+renault,Renault Modus,Van
+renault,Renault Trafic,Van
+renault,Renault Grand Espace,Van
+renault,Renault Grand Scenic,Van
+renault,Renault Vel Satis,Obere Mittelklasse
 renault,Renault Koleos,SUV
+renault,Renault Grand Modus,Van
+renault,Renault Rapid,Kleinwagen
+renault,Renault Wind,Kleinwagen
+renault,Renault Latitude,Mittelklasse
 renault,Renault Captur,SUV
 renault,Renault Kadjar,SUV
+renault,Renault R 6,Kleinwagen
 renault,Renault Talisman,Mittelklasse
+renault,Renault Alpine A110,Sportwagen
+renault,Renault Alaskan,SUV
 renault,Renault Arkana,SUV
+renault,Renault Express,Van
+renault,Renault Austral,SUV
+rover,Rover MINI,Kleinwagen
+rover,Rover 416,Kompaktklasse
+rover,Rover 620,Mittelklasse
+rover,Rover 75,Mittelklasse
+rover,Rover 25,Kleinwagen
+rover,Rover 45,Kompaktklasse
+rover,Rover Streetwise,Kleinwagen
+rover,Rover Rover,SUV
+saab,Saab 900,Mittelklasse
+saab,Saab 9000,Obere Mittelklasse
+saab,Saab 9-5,Obere Mittelklasse
 saab,Saab 9-3,Mittelklasse
+saab,Saab 93,Mittelklasse
+saab,Saab 9-4X,SUV
 seat,SEAT Ibiza,Kleinwagen
+seat,SEAT Toledo,Kompaktklasse
+seat,SEAT Arosa,Kleinwagen
+seat,SEAT Cordoba,Kleinwagen
 seat,SEAT Leon,Kompaktklasse
+seat,SEAT Altea,Van
 seat,SEAT Alhambra,Van
+seat,SEAT Altea XL,Van
+seat,SEAT Exeo,Mittelklasse
 seat,SEAT Mii,Kleinwagen
 seat,SEAT Ateca,SUV
 seat,SEAT Arona,Kleinwagen
 seat,SEAT Tarraco,SUV
 skoda,Skoda Fabia,Kleinwagen
-skoda,Skoda Superb,Mittelklasse
 skoda,Skoda Octavia,Kompaktklasse
+skoda,Skoda Superb,Mittelklasse
 skoda,Skoda Roomster,Van
+skoda,Skoda Praktik,Kleinwagen
 skoda,Skoda Yeti,SUV
 skoda,Skoda Citigo,Kleinwagen
 skoda,Skoda Rapid/Spaceback,Kompaktklasse
 skoda,Skoda Kodiaq,SUV
 skoda,Skoda Karoq,SUV
+skoda,Skoda 135,Kleinwagen
 skoda,Skoda Scala,Kompaktklasse
 skoda,Skoda Kamiq,SUV
+smart,smart city-coupé/city-cabrio,Kleinwagen
 smart,smart forTwo,Kleinwagen
+smart,smart roadster,Sportwagen
 smart,smart forFour,Kleinwagen
+smart,smart brabus,Kleinwagen
+ssangyong,SsangYong Korando,SUV
+ssangyong,SsangYong Kyron,SUV
+ssangyong,SsangYong REXTON,SUV
+ssangyong,SsangYong Actyon,SUV
+ssangyong,SsangYong Rodius,Van
+ssangyong,SsangYong Tivoli,SUV
+ssangyong,SsangYong XLV,SUV
+ssangyong,SsangYong MUSSO,SUV
 toyota,Toyota RAV 4,SUV
 toyota,Toyota Corolla,Kompaktklasse
 toyota,Toyota Land Cruiser,SUV
 toyota,Toyota Yaris,Kleinwagen
+toyota,Toyota Corolla Verso,Van
 toyota,Toyota Avensis,Mittelklasse
+toyota,Toyota Avensis Verso,Van
+toyota,Toyota Hiace,Van
 toyota,Toyota Aygo,Kleinwagen
+toyota,Toyota Previa,Van
+toyota,Toyota Prius,Kompaktklasse
 toyota,Toyota Auris,Kompaktklasse
 toyota,Toyota Hilux,SUV
+toyota,Toyota Camry,Mittelklasse
+toyota,Toyota Verso,Van
+toyota,Toyota Urban Cruiser,Kleinwagen
+toyota,Toyota iQ,Kleinwagen
+toyota,Toyota Sienna,Van
+toyota,Toyota Verso-S,Van
+toyota,Toyota GT86,Sportwagen
 toyota,Toyota Proace,Van
+toyota,Toyota Tacoma,SUV
 toyota,Toyota Aygo X,Kleinwagen
-volkswagen,Volkswagen Golf,Kompaktklasse
-volkswagen,Volkswagen Golf Cabriolet,Kompaktklasse
+toyota,Toyota Tundra,SUV
+toyota,Toyota C-HR,SUV
+toyota,Toyota Prius+,Van
+toyota,Toyota Supra,Sportwagen
+toyota,Toyota Proace City,Van
+toyota,Toyota MR 2,Sportwagen
+toyota,Toyota Yaris Cross,SUV
+toyota,Toyota GR86,Sportwagen
+toyota,Toyota FJ Cruiser,SUV
+toyota,Toyota Corolla Cross,SUV
+volkswagen,Volkswagen T4 Kombi,Van
+volkswagen,Volkswagen T4 Caravelle,Van
+volkswagen,Volkswagen T4,Van
 volkswagen,Volkswagen Polo,Kleinwagen
-volkswagen,Volkswagen Golf GTI,Kompaktklasse
 volkswagen,Volkswagen Passat Variant,Mittelklasse
+volkswagen,Volkswagen Golf,Kompaktklasse
+volkswagen,Volkswagen T4 Multivan,Van
+volkswagen,Volkswagen Corrado,Sportwagen
+volkswagen,Volkswagen Golf Cabriolet,Kompaktklasse
+volkswagen,Volkswagen Bus,Van
+volkswagen,Volkswagen Käfer,Kleinwagen
+volkswagen,Volkswagen T4 Allstar,Van
+volkswagen,Volkswagen Vento,Mittelklasse
+volkswagen,Volkswagen Golf GTI,Kompaktklasse
+volkswagen,Volkswagen T4 California,Van
 volkswagen,Volkswagen Passat,Mittelklasse
-volkswagen,Volkswagen New Beetle,Kleinwagen
-volkswagen,Volkswagen Beetle,Kleinwagen
 volkswagen,Volkswagen Golf Variant,Kompaktklasse
 volkswagen,Volkswagen Caddy,Van
+volkswagen,Volkswagen LT,Van
 volkswagen,Volkswagen Sharan,Van
+volkswagen,Volkswagen New Beetle,Kleinwagen
+volkswagen,Volkswagen Beetle,Kleinwagen
+volkswagen,Volkswagen Lupo,Kleinwagen
+volkswagen,Volkswagen Bora,Kompaktklasse
+volkswagen,Volkswagen Polo GTI,Kleinwagen
+volkswagen,Volkswagen Polo Variant,Kleinwagen
+volkswagen,Volkswagen Phaeton,Luxusklasse
 volkswagen,Volkswagen Touran,Van
-volkswagen,Volkswagen Touareg,SUV
 volkswagen,Volkswagen T5 Multivan,Van
+volkswagen,Volkswagen Touareg,SUV
+volkswagen,Volkswagen up!,Kleinwagen
 volkswagen,Volkswagen T5 Transporter,Van
-volkswagen,Volkswagen Fox,Kleinwagen
+volkswagen,Volkswagen Polo Sedan,Kleinwagen
 volkswagen,Volkswagen Golf Plus,Kompaktklasse
+volkswagen,Volkswagen T5 Caravelle,Van
+volkswagen,Volkswagen T5 Kombi,Van
+volkswagen,Volkswagen Polo Cross,Kleinwagen
+volkswagen,Volkswagen T5,Van
+volkswagen,Volkswagen T5 Shuttle,Van
+volkswagen,Volkswagen Jetta,Kompaktklasse
+volkswagen,Volkswagen Fox,Kleinwagen
+volkswagen,Volkswagen T5 California,Van
 volkswagen,Volkswagen Eos,Kompaktklasse
+volkswagen,Volkswagen T2,Van
 volkswagen,Volkswagen Crafter,Van
+volkswagen,Volkswagen Transporter,Van
 volkswagen,Volkswagen Tiguan,SUV
+volkswagen,Volkswagen Cross Golf,Kompaktklasse
+volkswagen,Volkswagen Cross Touran,Van
 volkswagen,Volkswagen Passat CC,Mittelklasse
 volkswagen,Volkswagen Scirocco,Sportwagen
 volkswagen,Volkswagen CC,Mittelklasse
 volkswagen,Volkswagen Amarok,SUV
-volkswagen,Volkswagen up!,Kleinwagen
 volkswagen,Volkswagen Passat Alltrack,Mittelklasse
+volkswagen,Volkswagen Golf R,Kompaktklasse
+volkswagen,Volkswagen Golf GTD,Kompaktklasse
+volkswagen,Volkswagen T6 Caravelle,Van
+volkswagen,Volkswagen Polo R WRC,Kleinwagen
 volkswagen,Volkswagen Golf Sportsvan,Van
 volkswagen,Volkswagen T6 Multivan,Van
 volkswagen,Volkswagen T6 Transporter,Van
 volkswagen,Volkswagen T6 California,Van
+volkswagen,Volkswagen T6 Kombi,Van
+volkswagen,Volkswagen Golf GTE,Kompaktklasse
 volkswagen,Volkswagen Arteon,Mittelklasse
 volkswagen,Volkswagen T-Roc,SUV
 volkswagen,Volkswagen Tiguan Allspace,SUV
 volkswagen,Volkswagen T-Cross,SUV
+volkswagen,Volkswagen T6.1 Multivan,Van
 volkswagen,Volkswagen T6.1 California,Van
+volkswagen,Volkswagen T6.1 Caravelle,Van
+volkswagen,Volkswagen T6.1 Transporter,Van
+volkswagen,Volkswagen T6.1 Kombi,Van
 volkswagen,Volkswagen Taigo,SUV
+volkswagen,Volkswagen Grand California,Van
+volkswagen,Volkswagen T7 Multivan,Van
+volvo,Volvo V70,Mittelklasse
+volvo,Volvo S80,Obere Mittelklasse
+volvo,Volvo C70,Sportwagen
 volvo,Volvo V40,Kompaktklasse
+volvo,Volvo S60,Mittelklasse
+volvo,Volvo S40,Mittelklasse
 volvo,Volvo XC90,SUV
+volvo,Volvo V50,Mittelklasse
+volvo,Volvo XC70,SUV
+volvo,Volvo C30,Kompaktklasse
 volvo,Volvo XC60,SUV
 volvo,Volvo V60,Mittelklasse
+volvo,Volvo V40 Cross Country,Kompaktklasse
+volvo,Volvo V60 Cross Country,Mittelklasse
 volvo,Volvo V90,Obere Mittelklasse
+volvo,Volvo S90,Obere Mittelklasse
 volvo,Volvo V90 Cross Country,Obere Mittelklasse
 volvo,Volvo XC40,SUV
