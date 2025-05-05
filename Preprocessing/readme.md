@@ -10,7 +10,7 @@ Wir nutzen einen **modularen Ansatz** zur Datenvorverarbeitung:
 - **wichtig**: hier wird derzeit noch Offer Description gedroppt, weil es die Modellleistung deutlich verschlechtert hat --> wer also die offer_description pipeline importiert, muss das vorher aus initial rauslöschen
 - Gibt einen sauberen `df` zurück
 
-### 2. Weitere Skripte (z. B. `preprocessing_pipeline_segment.py`, in Zukuft auch `preprocessing_pipeline_offer_description.py`)
+### 2. Weitere Skripte (z. B. `preprocessing_pipeline_segment.py`, `preprocessing_pipeline_offer_description.py`)
 - Bauen auf dem Output des initialen Skripts `preprocessing_pipeline_initial.py` auf
 - Enthalten transformationsspezifische Schritte (z. B. Segment, Offerdescription)
 
