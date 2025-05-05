@@ -35,6 +35,8 @@ from Preprocessing.preprocessing_pipeline_initial import preprocessing_pipeline
 from Preprocessing.preprocessing_pipeline_segment import preprocessing_pipeline_segment
 df = preprocessing_pipeline()
 df = preprocessing_pipeline_segment(df)
+# Für Offer Description:
+df = preprocessing_pipeline_offerdesc(df)
 X_train, X_test, y_train, y_test , X,y, categorical_features , numeric_features = split_data(df)
 ```
 $\rightarrow$ so lassen sich die beiden Ansätze, einmal mit segment und einmal ohne Segment recht schnell vergleichen
