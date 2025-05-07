@@ -167,7 +167,7 @@ def preprocess_new():
     df['registration_month'] = df['registration_date'].dt.month
     df['registration_year'] = df['registration_date'].dt.year
 
-    df = df.drop(['registration_date', 'year','power_kw', 'offer_description', 'fuel_consumption_g_km'], axis=1) # year sonst zweimal drinne
+    df = df.drop(['registration_date', 'year','power_kw', 'fuel_consumption_g_km'], axis=1) # year sonst zweimal drinne
 
 
     df = df.dropna().reset_index(drop= True)
