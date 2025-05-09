@@ -58,4 +58,6 @@ def preprocessing_pipeline_offerdesc(df):
         lambda text: True if any(abk.lower() in text.lower() for abk in abkuerzungen) else False
         )
 
+    df = df.drop(['offer_description'], axis=1)
+
     return df

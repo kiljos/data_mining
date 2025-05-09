@@ -1,7 +1,7 @@
 import pandas as pd
 import numpy as np
 
-from sklearn.preprocessing import StandardScaler, OneHotEncoder
+from sklearn.preprocessing import StandardScaler, OneHotEncoder, OrdinalEncoder
 from sklearn.compose import ColumnTransformer
 from sklearn.pipeline import Pipeline
 from sklearn.impute import SimpleImputer
@@ -19,7 +19,6 @@ def main():
     df = preprocessing_pipeline() 
     df = preprocessing_pipeline_segment(df)
     X_train, X_test, y_train, y_test , X,y, categorical_features , numeric_features = split_data(df)
-    print(X_train.head(5))
 
     # Preprocessing-Pipelines erstellen
     numeric_transformer = Pipeline(steps=[
@@ -29,7 +28,7 @@ def main():
 
     categorical_transformer = Pipeline(steps=[
         ('imputer', SimpleImputer(strategy='most_frequent')),
-        ('onehot', OneHotEncoder(handle_unknown='ignore'))
+        ('onehot', OrdinalEncoder(handle_unknown='use_encoded_value'))
     ])
 
     preprocessor = ColumnTransformer(
