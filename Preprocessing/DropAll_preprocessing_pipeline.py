@@ -1,8 +1,15 @@
 import pandas as pd
 import numpy as np
+import matplotlib.pyplot as plt
+
+from sklearn.preprocessing import StandardScaler, OneHotEncoder
+from sklearn.compose import ColumnTransformer
+from sklearn.pipeline import Pipeline
+from sklearn.impute import SimpleImputer
+from sklearn.linear_model import LinearRegression
+from sklearn.metrics import mean_absolute_error, mean_squared_error, r2_score
 import re
 import gc  # Garbage Collector zur Speicherverwaltung
-
 
 def fix_model_brand_conflicts(df):
     '''Diese Funktion überprüft, ob es Zeilen gibt, in denen brand = model ist. In diesen Zeilen haben wir keine Informationen
@@ -45,14 +52,11 @@ def fix_model_brand_conflicts(df):
 
     return final_df
 
-def preprocessing_pipeline():
+def preprocessing_pipeline(df, mode = 'train'):
         
-    # Daten laden
-    df = pd.read_csv(r'data_mining\data.csv')
         
     # entferne Duplikate  
-    df = df.drop_duplicates(subset= ['brand', 'model', 'color', 'registration_date', 'year',
-       'price_in_euro', 'power_kw', 'power_ps', 'transmission_type',
+    df = df.drop_duplicates(subset= ['brand', 'model', 'color', 'registration_date', 'year', 'power_kw', 'power_ps', 'transmission_type',
        'fuel_type', 'fuel_consumption_l_100km', 'fuel_consumption_g_km',
        'mileage_in_km', 'offer_description']) 
 
@@ -60,12 +64,7 @@ def preprocessing_pipeline():
     if 'Unnamed: 0' in df.columns:
         df = df.drop('Unnamed: 0', axis=1)
 
-    # andere fuel Types als Diesel und Petrol in einen anderen Datensatz extrakhieren    
-    valid_fuel_types = ['Hybrid', 'Diesel Hybrid', 'Electric', 'LPG', 'CNG', 'Ethanol', 'Hydrogen', 'Other']
-    df_before_filter = df.copy()    
-    df_other_fuel_types = df_before_filter[(~df_before_filter['fuel_type'].isin(['Diesel', 'Petrol'])) & (df_before_filter['fuel_type'].isin(valid_fuel_types))].reset_index(drop=True)
-       # evtl. den ersten Teil  ~df_before_filter['fuel_type'].isin(['Diesel', 'Petrol'])) & rausnehmen? Denn ist ja doppelt, denn Bedingung wird ja in dem 2. Teil ja schon überpüft wird
-        
+    
     df = df.loc[df['fuel_type'].isin(['Diesel', 'Petrol'])]
     df = df.loc[df['fuel_consumption_g_km'].str.contains(r'g/km', na=False)] # hiermit werden hybride Fahrzeuge rausgefiltert (haben Reichweite in g/km drin, aber trotzdem fuel Type Petrol/ Diesel
     df = df.reset_index(drop=True)
@@ -98,41 +97,68 @@ def preprocessing_pipeline():
     df['fuel_consumption_g_km'] = df['fuel_consumption_g_km'].apply(clean_fuel_consumption_g)      
 
 
-    # Funktion zur Berechnung fehlender l/100km Werte, wenn g/km gegeben ist
-    def calculate_fuel_consumption(row):
-
-        conversion_factor = 0.043103448275862
-
-        if pd.isna(row['fuel_consumption_l_100km']) or row['fuel_consumption_l_100km'] == 0:
-            if pd.notna(row['fuel_consumption_g_km']) and row['fuel_consumption_g_km'] != 0:
-                return row['fuel_consumption_g_km'] * conversion_factor
-            else:
-                return np.nan
-        else:
-            return row['fuel_consumption_l_100km']
-
-    df['fuel_consumption_l_100km'] = df.apply(calculate_fuel_consumption, axis=1)
     
     # Fixe wo model = brand, versuche eindeutig Model zuzuweisen sonst droppen 
     df = fix_model_brand_conflicts(df) 
 
-    df.drop(columns=['fuel_consumption_g_km'], axis = 1)
-        
-    # Spalten ins numerische umwandeln
-    for col in ['power_ps', 'power_kw']:
-            df[col] = df[col].astype(float)
-    df['mileage_in_km'] = pd.to_numeric(df['mileage_in_km'], errors='coerce')
-    df['price_in_euro'] = pd.to_numeric(df['price_in_euro'], errors='coerce')
-        
-    # Encoding vom Datum ins numerische
-    df['registration_date'] = pd.to_datetime(df['registration_date'], format='%m/%Y', errors='coerce')
-    df['registration_month'] = df['registration_date'].dt.month
-    df['registration_year'] = df['registration_date'].dt.year
-
-    df = df.drop(['registration_date', 'year','power_kw', 'offer_description'], axis=1) # year sonst zweimal drinne
     
+    
+    
+
+
+    # Spalten ins numerische umwandeln
+    df['mileage_in_km'] = pd.to_numeric(df['mileage_in_km'], errors='coerce')
+    df['power_ps'] = pd.to_numeric(df['power_ps'], errors='coerce')
+    #df['price_in_euro'] = pd.to_numeric(df['price_in_euro'], errors='coerce')
+    
+    df['year'] = pd.to_numeric(df['year'], errors='coerce')
+
+    df["age"] = 2023 - df["year"]
+    
+
+    df.drop(columns=['fuel_consumption_g_km','power_kw',"registration_date","year","offer_description"], inplace=True) 
+    
+    if mode== 'test':
+        return df
+
     # Droppe alle Zeilen, in denen null values vorkommen
     df = df.dropna()
-   
-    return df 
 
+
+    # Outlier Detection für fuel
+    q1_fuel= df['fuel_consumption_l_100km'].quantile(0.25)
+    q3_fuel=df['fuel_consumption_l_100km'].quantile(0.75)
+    iqr_fuel = q3_fuel - q1_fuel    
+    lower_bound_fuel = q1_fuel - 1.5 * iqr_fuel
+    upper_bound_fuel = 25 #fix alles löschen was über 25 l/100km ist
+    df = df[(df['fuel_consumption_l_100km'] >= lower_bound_fuel) & (df['fuel_consumption_l_100km'] <= upper_bound_fuel)]
+    
+    # Funktion Outlier detection für Preis & Mileage 
+    def detect_outliers_iqr(df, group_col, target_col):
+        outlier_flags = pd.Series(False, index=df.index)
+
+        for name, group in df.groupby(group_col):
+            if len(group) < 2:
+                continue
+
+            q1 = group[target_col].quantile(0.25)
+            q3 = group[target_col].quantile(0.75)
+            iqr = q3 - q1
+            lower = q1 - 1.5 * iqr
+            upper = q3 + 1.5 * iqr
+
+            mask = (group[target_col] < lower) | (group[target_col] > upper)
+            outlier_flags.loc[group[mask].index] = True
+
+        return outlier_flags
+
+    
+    df['outlier_model_mileage'] = detect_outliers_iqr(df, ['brand', 'model'], 'mileage_in_km')
+
+    # Entferne alle Rows, die bei Preis & Mileage ein Outlier sind
+    df = df[(~df['outlier_model_mileage'])].copy()
+    
+    # Lösche die Outlier-Spalte, da sie nicht mehr benötigt wird
+    df.drop(columns=['outlier_model_mileage'], inplace=True)
+    
+    return df

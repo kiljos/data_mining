@@ -55,7 +55,7 @@ def fix_model_brand_conflicts(df):
 def preprocessing_pipeline():
         
     # Daten laden
-    df = pd.read_csv('data.csv')
+    df = pd.read_csv(r'data_mining\data.csv')
         
     # entferne Duplikate  
     df = df.drop_duplicates(subset= ['brand', 'model', 'color', 'registration_date', 'year',
