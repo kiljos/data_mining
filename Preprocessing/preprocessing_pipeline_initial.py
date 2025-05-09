@@ -118,7 +118,7 @@ def preprocessing_pipeline(path = '../data.csv'):
     # Encoding vom Datum ins numerische
     df['registration_date'] = pd.to_datetime(df['registration_date'], format='%m/%Y', errors='coerce')
     df['registration_month'] = df['registration_date'].dt.month
-    df['registration_year'] = df['registration_date'].dt.year
+    #df['registration_year'] = df['registration_date'].dt.year
 
     df = df.drop(['registration_date','power_kw', 'offer_description'], axis=1) # year sonst zweimal drinne
     
