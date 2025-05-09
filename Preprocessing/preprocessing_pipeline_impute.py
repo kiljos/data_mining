@@ -4,51 +4,30 @@ import re
 import gc  # Garbage Collector zur Speicherverwaltung
 
 
-def fix_model_brand_conflicts(df):
-    '''Diese Funktion überprüft, ob es Zeilen gibt, in denen brand = model ist. In diesen Zeilen haben wir keine Informationen
-    über das Model. 
-    
-    Um die Zeilen aber nicht direkt zu droppen, wird vorher geschaut, ob man über bestimmte Spalten das Model eindeutig zuornden kann.
-    Ist eine eindeutige Zuordnung möglich, dann überschreiben wir die ursprüngliche Ausprägung in model. Ist keine Zuordnung möglich, dann wird die Zeile
-    gedroppt.
-    '''
-
+def drop_records_brand_equal_model(df):
+    """
+    Entfernt alle Zeilen, in denen brand und model nach Normalisierung identisch sind.
+    """
     def normalize(text):
         if pd.isna(text):
             return ""
-        return re.sub(r'[^a-z0-9]', '', text.lower())
+        return re.sub(r"[^a-z0-9]", "", text.lower())
 
-    df['brand_norm'] = df['brand'].apply(normalize)
-    df['model_norm'] = df['model'].apply(normalize)
+    df = df.copy()
+    df["brand_norm"]  = df["brand"].apply(normalize)
+    df["model_norm"]  = df["model"].apply(normalize)
 
-    mask_same = df['brand_norm'] == df['model_norm']
+    # Zeilen behalten, bei denen die Normalisierungen unterschiedlich sind
+    df = df[df["brand_norm"] != df["model_norm"]].reset_index(drop=True)
 
-    problem_rows = df[mask_same].copy()
-    clean_rows = df[~mask_same].copy()
+    df.drop(columns=["brand_norm", "model_norm"], inplace=True)
+    return df
+#--------------------------------------   
 
-    grouped_models = clean_rows \
-        .groupby(['brand', 'power_ps', 'fuel_consumption_g_km', 'transmission_type', 'fuel_type'])['model'] \
-        .unique().reset_index() 
-
-    grouped_models = grouped_models[grouped_models['model'].apply(len) == 1] # nur kontexte bei denen model unique ist (ein element in der liste)
-    grouped_models['model'] = grouped_models['model'].apply(lambda x: x[0]) # nimm nur das erste element aus der liste
-
-    problem_fixed = problem_rows.merge(grouped_models, on=['brand', 'power_ps', 'fuel_consumption_g_km', 'transmission_type', 'fuel_type'],
-                                       how='left', suffixes=('', '_fixed'))
-
-    recovered = problem_fixed[problem_fixed['model_fixed'].notna()].copy()
-    recovered['model'] = recovered['model_fixed']
-    recovered = recovered.drop(columns=['model_fixed'])
-
-    final_df = pd.concat([clean_rows, recovered], ignore_index=True) \
-                 .drop(columns=['brand_norm', 'model_norm'])
-
-    return final_df
-
-def preprocessing_pipeline():
+def preprocessing_pipeline(path = '../data.csv'):
         
     # Daten laden
-    df = pd.read_csv(r'data_mining\data.csv')
+    df = pd.read_csv(path)
         
     # entferne Duplikate  
     df = df.drop_duplicates(subset= ['brand', 'model', 'color', 'registration_date', 'year',
@@ -59,13 +38,13 @@ def preprocessing_pipeline():
     # Droppe zweite Index Spalte
     if 'Unnamed: 0' in df.columns:
         df = df.drop('Unnamed: 0', axis=1)
-
+    '''
     # andere fuel Types als Diesel und Petrol in einen anderen Datensatz extrakhieren    
     valid_fuel_types = ['Hybrid', 'Diesel Hybrid', 'Electric', 'LPG', 'CNG', 'Ethanol', 'Hydrogen', 'Other']
     df_before_filter = df.copy()    
     df_other_fuel_types = df_before_filter[(~df_before_filter['fuel_type'].isin(['Diesel', 'Petrol'])) & (df_before_filter['fuel_type'].isin(valid_fuel_types))].reset_index(drop=True)
        # evtl. den ersten Teil  ~df_before_filter['fuel_type'].isin(['Diesel', 'Petrol'])) & rausnehmen? Denn ist ja doppelt, denn Bedingung wird ja in dem 2. Teil ja schon überpüft wird
-        
+    '''   
     df = df.loc[df['fuel_type'].isin(['Diesel', 'Petrol'])]
     df = df.loc[df['fuel_consumption_g_km'].str.contains(r'g/km', na=False)] # hiermit werden hybride Fahrzeuge rausgefiltert (haben Reichweite in g/km drin, aber trotzdem fuel Type Petrol/ Diesel
     df = df.reset_index(drop=True)
@@ -85,6 +64,7 @@ def preprocessing_pipeline():
         df.loc[e_mit_reichweite, "fuel_consumption_l_100km"] = df.loc[e_mit_reichweite, "fuel_consumption_g_km"]
         
         return df
+    
     df = Electrics_Reichweite(df)
                 
     def clean_fuel_consumption(value): 
@@ -122,25 +102,22 @@ def preprocessing_pipeline():
 
     df['fuel_consumption_l_100km'] = df.apply(calculate_fuel_consumption, axis=1)
     
-    # Fixe wo model = brand, versuche eindeutig Model zuzuweisen sonst droppen 
-    df = fix_model_brand_conflicts(df) 
+    # Droppe wo brand = model
+    df = drop_records_brand_equal_model(df) 
 
-    df.drop(columns=['fuel_consumption_g_km'], axis = 1)
         
     # Spalten ins numerische umwandeln
     for col in ['power_ps', 'power_kw']:
             df[col] = df[col].astype(float)
     df['mileage_in_km'] = pd.to_numeric(df['mileage_in_km'], errors='coerce')
     df['price_in_euro'] = pd.to_numeric(df['price_in_euro'], errors='coerce')
-        
+    df['year'] = pd.to_numeric(df['year'], errors='coerce')   
+    
     # Encoding vom Datum ins numerische
     df['registration_date'] = pd.to_datetime(df['registration_date'], format='%m/%Y', errors='coerce')
     df['registration_month'] = df['registration_date'].dt.month
     df['registration_year'] = df['registration_date'].dt.year
 
-    df = df.drop(['registration_date', 'year','power_kw', 'offer_description'], axis=1) # year sonst zweimal drinne
-    
-    # Droppe alle Zeilen, in denen null values vorkommen
-    df = df.dropna()
+    df = df.drop(['registration_date','power_kw', 'offer_description', 'fuel_consumption_g_km'], axis=1)
    
     return df 

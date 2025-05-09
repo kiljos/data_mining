@@ -1,13 +1,24 @@
 import pandas as pd
 import numpy as np
 
+
+
+
 from sklearn.preprocessing import StandardScaler, OneHotEncoder, OrdinalEncoder
 from sklearn.compose import ColumnTransformer
 from sklearn.pipeline import Pipeline
 from sklearn.impute import SimpleImputer
 from sklearn.linear_model import LinearRegression
 
-import gc  # Garbage Collector zur Speicherverwaltung
+
+import sys
+import os
+
+import sys
+import os
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "../../")))
+
+
 from Preprocessing.preprocessing_pipeline_initial import preprocessing_pipeline
 from Preprocessing.preprocessing_pipeline_segment import preprocessing_pipeline_segment
 from Preprocessing.split import split_data
@@ -16,8 +27,8 @@ from eval_call import evaluate_model
 
 
 def main():
-    df = preprocessing_pipeline() 
-    df = preprocessing_pipeline_segment(df)
+    df = preprocessing_pipeline('data.csv') 
+    #df = preprocessing_pipeline_segment(df)
     X_train, X_test, y_train, y_test , X,y, categorical_features , numeric_features = split_data(df)
 
     # Preprocessing-Pipelines erstellen
@@ -28,7 +39,7 @@ def main():
 
     categorical_transformer = Pipeline(steps=[
         ('imputer', SimpleImputer(strategy='most_frequent')),
-        ('onehot', OrdinalEncoder(handle_unknown='use_encoded_value'))
+        ('onehot', OneHotEncoder(handle_unknown='ignore'))
     ])
 
     preprocessor = ColumnTransformer(
