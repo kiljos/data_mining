@@ -132,7 +132,7 @@ def preprocessing_pipeline():
     df = df.drop(['registration_date', 'year','power_kw', 'offer_description'], axis=1) # year sonst zweimal drinne
     
     # Droppe alle Zeilen, in denen null values vorkommen
-    df = df.dropna()
+    df = df.fillna(0)
    
     return df 
 
