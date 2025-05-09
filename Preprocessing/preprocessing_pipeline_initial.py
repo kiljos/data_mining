@@ -76,9 +76,17 @@ def preprocessing_pipeline():
     filt = [val in yearsToFilter for val in df['year']]
     df = df[filt]
 
-    # Abtrennen der Textbausteine + aussortieren von Zeilen, die verrutscht sind, in der beiden fuel consumption Spalte 
+    def Electrics_Reichweite(df):
+    # Filtere die Zeilen, bei denen "fuel_type" = "Electric" und "fuel_consumption_g_km" das Wort "Reichweite" enthält
+        e_mit_reichweite = (df["fuel_type"] == "Electric") & (df["fuel_consumption_g_km"].astype(str).str.contains("Reichweite", na=False))
+        # Cutte in der Spalte "fuel_consumption_g_km" beim ersten Leerzeichen
+        df.loc[e_mit_reichweite, "fuel_consumption_g_km"] = df.loc[e_mit_reichweite, "fuel_consumption_g_km"].astype(str).str.split().str[0]
+        # Kopiere Werte von "fuel_consumption_g_km" in die Spalte "fuel_consumption_l_100km"
+        df.loc[e_mit_reichweite, "fuel_consumption_l_100km"] = df.loc[e_mit_reichweite, "fuel_consumption_g_km"]
+    return df
+    df = Electrics_Reichweite(df)
                 
-    def clean_fuel_consumption(value): # Bei Elektroautos steht Reichweite
+    def clean_fuel_consumption(value): 
         if pd.isna(value) or 'l/100 km' not in str(value):
             return np.nan
         try:
