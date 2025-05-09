@@ -22,7 +22,6 @@ def drop_records_brand_equal_model(df):
 
     df.drop(columns=["brand_norm", "model_norm"], inplace=True)
     return df
-
 #--------------------------------------   
 
 def preprocessing_pipeline(path = '../data.csv'):
@@ -106,23 +105,19 @@ def preprocessing_pipeline(path = '../data.csv'):
     # Droppe wo brand = model
     df = drop_records_brand_equal_model(df) 
 
-    df = df.drop(columns=['fuel_consumption_g_km'], axis = 1)
         
     # Spalten ins numerische umwandeln
     for col in ['power_ps', 'power_kw']:
             df[col] = df[col].astype(float)
     df['mileage_in_km'] = pd.to_numeric(df['mileage_in_km'], errors='coerce')
     df['price_in_euro'] = pd.to_numeric(df['price_in_euro'], errors='coerce')
-    df['year'] = pd.to_numeric(df['year'], errors='coerce')
-        
+    df['year'] = pd.to_numeric(df['year'], errors='coerce')   
+    
     # Encoding vom Datum ins numerische
     df['registration_date'] = pd.to_datetime(df['registration_date'], format='%m/%Y', errors='coerce')
     df['registration_month'] = df['registration_date'].dt.month
     df['registration_year'] = df['registration_date'].dt.year
 
-    df = df.drop(['registration_date','power_kw', 'offer_description'], axis=1) # year sonst zweimal drinne
-    
-    # Droppe alle Zeilen, in denen null values vorkommen
-    df = df.dropna()
+    df = df.drop(['registration_date','power_kw', 'offer_description', 'fuel_consumption_g_km'], axis=1)
    
     return df 
