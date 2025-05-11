@@ -19,6 +19,9 @@ def fix_model_brand_conflicts(df):
     Ist eine eindeutige Zuordnung möglich, dann überschreiben wir die ursprüngliche Ausprägung in model. Ist keine Zuordnung möglich, dann wird die Zeile
     gedroppt.
     '''
+    # Droppe zweite Index Spalte
+    if 'Unnamed: 0' in df.columns:
+        df = df.drop('Unnamed: 0', axis=1)
 
     def normalize(text):
         if pd.isna(text):
@@ -96,9 +99,7 @@ def preprocessing_pipeline(df, mode = 'train'):
     df['fuel_consumption_l_100km'] = df['fuel_consumption_l_100km'].apply(clean_fuel_consumption)
     df['fuel_consumption_g_km'] = df['fuel_consumption_g_km'].apply(clean_fuel_consumption_g)      
 
-
-    
-    # Fixe wo model = brand, versuche eindeutig Model zuzuweisen sonst droppen 
+ 
     df = fix_model_brand_conflicts(df) 
 
     
@@ -109,7 +110,7 @@ def preprocessing_pipeline(df, mode = 'train'):
     # Spalten ins numerische umwandeln
     df['mileage_in_km'] = pd.to_numeric(df['mileage_in_km'], errors='coerce')
     df['power_ps'] = pd.to_numeric(df['power_ps'], errors='coerce')
-    #df['price_in_euro'] = pd.to_numeric(df['price_in_euro'], errors='coerce')
+    df['price_in_euro'] = pd.to_numeric(df['price_in_euro'], errors='coerce')  # Uncomment this line
     
     df['year'] = pd.to_numeric(df['year'], errors='coerce')
 
@@ -161,4 +162,13 @@ def preprocessing_pipeline(df, mode = 'train'):
     # Lösche die Outlier-Spalte, da sie nicht mehr benötigt wird
     df.drop(columns=['outlier_model_mileage'], inplace=True)
     
+    for col in ['mileage_in_km', 'power_ps', 'fuel_consumption_l_100km']:
+        df[col] = pd.to_numeric(df[col], errors='coerce')
+    
+    # Ensure all categorical columns are strings
+    for col in ['brand', 'model', 'color', 'transmission_type', 'fuel_type']:
+        df[col] = df[col].astype(str)
+    
+
+
     return df

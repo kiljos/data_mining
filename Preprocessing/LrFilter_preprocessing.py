@@ -52,29 +52,13 @@ def fix_model_brand_conflicts(df):
 
     return final_df
 
-def preprocessing_pipeline(df):
+def preprocessing_pipeline_lrfilter(df):
         
         
-    # entferne Duplikate  
-    df = df.drop_duplicates(subset= ['brand', 'model', 'color', 'registration_date', 'year',
-       'price_in_euro', 'power_kw', 'power_ps', 'transmission_type',
-       'fuel_type', 'fuel_consumption_l_100km', 'fuel_consumption_g_km',
-       'mileage_in_km', 'offer_description']) 
-
-    # Droppe zweite Index Spalte
-    if 'Unnamed: 0' in df.columns:
-        df = df.drop('Unnamed: 0', axis=1)
+  
 
     
-    df = df.loc[df['fuel_type'].isin(['Diesel', 'Petrol'])]
-    df = df.loc[df['fuel_consumption_g_km'].str.contains(r'g/km', na=False)] # hiermit werden hybride Fahrzeuge rausgefiltert (haben Reichweite in g/km drin, aber trotzdem fuel Type Petrol/ Diesel
-    df = df.reset_index(drop=True)
     
-            
-    # Zeilen mit falschen Jahreszahlen werden herausgenommen
-    yearsToFilter = list(df['year'].unique()[:29])
-    filt = [val in yearsToFilter for val in df['year']]
-    df = df[filt]
 
     # Abtrennen der Textbausteine + aussortieren von Zeilen, die verrutscht sind, in der beiden fuel consumption Spalte 
                 
@@ -95,7 +79,7 @@ def preprocessing_pipeline(df):
             return np.nan
                         
     df['fuel_consumption_l_100km'] = df['fuel_consumption_l_100km'].apply(clean_fuel_consumption)
-    df['fuel_consumption_g_km'] = df['fuel_consumption_g_km'].apply(clean_fuel_consumption_g)      
+     
 
 
     
@@ -110,7 +94,7 @@ def preprocessing_pipeline(df):
     # Spalten ins numerische umwandeln
     df['mileage_in_km'] = pd.to_numeric(df['mileage_in_km'], errors='coerce')
     df['power_ps'] = pd.to_numeric(df['power_ps'], errors='coerce')
-    df['price_in_euro'] = pd.to_numeric(df['price_in_euro'], errors='coerce')
+    
     
     df['year'] = pd.to_numeric(df['year'], errors='coerce')
 
