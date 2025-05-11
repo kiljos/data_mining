@@ -44,7 +44,7 @@ def preprocessing_pipeline_offerdesc(df):
     # Die oben ausgegebene Liste an häufigsten Wörtern wurde dann per Hand aussortiert, e.g. Wörter wie "auto, matic" usw. wurden entfernt
     # Und ähnliche Wörter in Kategorien zusammengefasst z.B. "quattro, xDrive und awd = all wheel drive"
     # Einlesen der Kategorien aus der csv-datei "offer_description_utf8.csv"
-    kat = pd.read_csv("offer_description_utf8.csv", sep=";")
+    kat = pd.read_csv("../../offer_description_utf8.csv", sep=";")
     # Werte ohne zugeordnete Kategorien werden gelöscht
     kat = kat.dropna(subset=["Kategorie"])
 
