@@ -57,3 +57,18 @@ def apply_imputation(df, target_col, maps):
         df[target_col] = df.apply(fill, axis=1)
 
     return df
+
+from sklearn.base import BaseEstimator, TransformerMixin
+
+class ContextImputer(BaseEstimator, TransformerMixin):
+    def __init__(self, target_col):
+        self.target_col = target_col
+        self.maps_ = None
+
+    def fit(self, X, y=None):
+        # X ist DataFrame
+        self.maps_ = get_imputation_maps(X.copy(), target_col=self.target_col)
+        return self
+    
+    def transform(self, X):
+        return apply_imputation(X.copy(), target_col=self.target_col, maps=self.maps_)

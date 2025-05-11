@@ -55,6 +55,7 @@ def preprocessing_pipeline(path = '../data.csv'):
     filt = [val in yearsToFilter for val in df['year']]
     df = df[filt]
 
+
     def Electrics_Reichweite(df):
     # Filtere die Zeilen, bei denen "fuel_type" = "Electric" und "fuel_consumption_g_km" das Wort "Reichweite" enthält
         e_mit_reichweite = (df["fuel_type"] == "Electric") & (df["fuel_consumption_g_km"].astype(str).str.contains("Reichweite", na=False))
@@ -86,7 +87,14 @@ def preprocessing_pipeline(path = '../data.csv'):
     df['fuel_consumption_l_100km'] = df['fuel_consumption_l_100km'].apply(clean_fuel_consumption)
     df['fuel_consumption_g_km'] = df['fuel_consumption_g_km'].apply(clean_fuel_consumption_g)      
 
+    # setze die Ausreißer bei Petrol, Diesel in fuel_consumption_100km auf nan
 
+    mask = (
+    (df['fuel_consumption_l_100km'] > 23) &
+    (df['fuel_type'].isin(['Petrol', 'Diesel']))
+)
+    df.loc[mask, 'fuel_consumption_l_100km'] = np.nan
+    
     # Funktion zur Berechnung fehlender l/100km Werte, wenn g/km gegeben ist
     def calculate_fuel_consumption(row):
 
@@ -100,7 +108,7 @@ def preprocessing_pipeline(path = '../data.csv'):
         else:
             return row['fuel_consumption_l_100km']
 
-    df['fuel_consumption_l_100km'] = df.apply(calculate_fuel_consumption, axis=1)
+    #df['fuel_consumption_l_100km'] = df.apply(calculate_fuel_consumption, axis=1)
     
     # Droppe wo brand = model
     df = drop_records_brand_equal_model(df) 
