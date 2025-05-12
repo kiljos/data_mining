@@ -52,67 +52,40 @@ def fix_model_brand_conflicts(df):
 
     return final_df
 
-def preprocessing_pipeline_lrfilter(df):
+def preprocessing_pipeline_lrfilter(X_train,y_train):
         
         
   
+    # Create a DataFrame from X_train and add y_train as a column
+    df = X_train.copy()
+    df['price_in_euro'] = y_train
 
-    
-    
-
-    # Abtrennen der Textbausteine + aussortieren von Zeilen, die verrutscht sind, in der beiden fuel consumption Spalte 
-                
-    def clean_fuel_consumption(value): # Bei Elektroautos steht Reichweite
-        if pd.isna(value) or 'l/100 km' not in str(value):
-            return np.nan
-        try:
-            return float(value.split(' ')[0].replace(',', '.'))
-        except:
-            return np.nan
-                        
-    def clean_fuel_consumption_g(value):
-        if pd.isna(value) or value == '- (g/km)' or 'g/km' not in str(value): # Bei Elektroautos steht Reichweite
-            return np.nan
-        try:
-            return float(value.split(' ')[0])
-        except:
-            return np.nan
-                        
-    df['fuel_consumption_l_100km'] = df['fuel_consumption_l_100km'].apply(clean_fuel_consumption)
-     
-
-
-    
     # Fixe wo model = brand, versuche eindeutig Model zuzuweisen sonst droppen 
-    df = fix_model_brand_conflicts(df) 
+    df = fix_model_brand_conflicts(df)
 
     
     
     
-
-
-    # Spalten ins numerische umwandeln
-    df['mileage_in_km'] = pd.to_numeric(df['mileage_in_km'], errors='coerce')
-    df['power_ps'] = pd.to_numeric(df['power_ps'], errors='coerce')
     
-    
-    df['year'] = pd.to_numeric(df['year'], errors='coerce')
+    # ps nana drop or 0 ps drop
+    df = df[~((df['power_ps'].isna()) | (df['power_ps'] == 0))].reset_index(drop=True)
 
-    df["age"] = 2023 - df["year"]
-    
 
-    # Droppe alle Zeilen, in denen null values vorkommen
-    df = df.dropna()
+    df['fuel_consumption_l_100km'] = df['fuel_consumption_l_100km'].fillna(0.0)
+
 
     # Outlier Detection für fuel
-    q1_fuel= df['fuel_consumption_l_100km'].quantile(0.25)
-    q3_fuel=df['fuel_consumption_l_100km'].quantile(0.75)
+    q1_fuel= df['fuel_consumption_l_100km'].quantile(0.15)
+    q3_fuel=df['fuel_consumption_l_100km'].quantile(0.85)
+
     iqr_fuel = q3_fuel - q1_fuel    
     lower_bound_fuel = q1_fuel - 1.5 * iqr_fuel
+
     upper_bound_fuel = 25 #fix alles löschen was über 25 l/100km ist
+
     df = df[(df['fuel_consumption_l_100km'] >= lower_bound_fuel) & (df['fuel_consumption_l_100km'] <= upper_bound_fuel)]
     
-    # Funktion Outlier detection für Preis & Mileage 
+    # Funktion Outlier detection für Mileage 
     def detect_outliers_iqr(df, group_col, target_col):
         outlier_flags = pd.Series(False, index=df.index)
 
@@ -131,7 +104,12 @@ def preprocessing_pipeline_lrfilter(df):
 
         return outlier_flags
 
-    df.drop(columns=['fuel_consumption_g_km','power_kw',"registration_date","year"], inplace=True) 
+
+
+
+
+
+    df.drop(columns=['fuel_consumption_g_km','power_kw',"registration_date"], inplace=True) 
     
     df['outlier_model_mileage'] = detect_outliers_iqr(df, ['brand', 'model'], 'mileage_in_km')
 
@@ -141,7 +119,35 @@ def preprocessing_pipeline_lrfilter(df):
     # Lösche die Outlier-Spalte, da sie nicht mehr benötigt wird
     df.drop(columns=['outlier_model_mileage'], inplace=True)
 
-    df.drop(columns=['offer_description'], inplace=True)
+    #df.drop(columns=['offer_description'], inplace=True)
+
+    df_valid = df.copy()
+    # Fit a linear regression model
+    X = df_valid[['brand', 'model', 'fuel_type', 'age', 'power_ps']]
+    X = pd.get_dummies(X, columns=['brand', 'model', 'fuel_type', 'age'], drop_first=True)
+    y = df_valid['fuel_consumption_l_100km'].values
+    model = LinearRegression().fit(X, y)
+
+    # Calculate predicted values and residuals
+    df_valid['predicted_consumption'] = model.predict(X)
+    df_valid['residual'] = df_valid['fuel_consumption_l_100km'] - df_valid['predicted_consumption']
+
+    # Calculate standard deviation of residuals
+    residual_std = df_valid['residual'].std()
+
+    # Identify outliers (residuals more than 3 standard deviations from the mean)
+    threshold = 3
+    df_valid['is_outlier'] = abs(df_valid['residual']) > threshold * residual_std
+
+    # Replace fuel consumption values with predictions where marked as outliers
+    df_valid.loc[df_valid['is_outlier'], 'fuel_consumption_l_100km'] = df_valid.loc[df_valid['is_outlier'], 'predicted_consumption']
 
     
-    return df
+    # Drop intermediate columns that are no longer needed
+    df_valid.drop(columns=['predicted_consumption', 'residual', 'is_outlier','registration_month',"year"], inplace=True)
+
+
+
+
+    
+    return df_valid
