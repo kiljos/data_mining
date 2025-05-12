@@ -25,7 +25,7 @@ def drop_records_brand_equal_model(df):
 
 #--------------------------------------   
 
-def preprocessing_pipeline(path = '../data.csv'):
+def preprocessing_pipeline(path = 'data_mining\data.csv'):
         
     # Daten laden
     df = pd.read_csv(path)

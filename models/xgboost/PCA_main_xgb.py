@@ -11,9 +11,10 @@ import numpy as np
 import pandas as pd
 import xgboost as xgb
 import gc
+
 from Preprocessing.preprocessing_pipeline_initial import preprocessing_pipeline
 from Preprocessing.split import split_data
-from eval_call import evaluate_model
+from utils.eval_call import evaluate_model
 
 
 
@@ -33,13 +34,13 @@ def main():
     categorical_transformer = Pipeline(steps=[
     ('imputer', SimpleImputer(strategy='most_frequent')),
     ('ordinal', OrdinalEncoder(handle_unknown='use_encoded_value', unknown_value=-1))
-])
+    ])
 
     preprocessor = ColumnTransformer(
         transformers=[
             ('num', numeric_transformer, numeric_features),
             ('cat', categorical_transformer, categorical_features)
-        ])
+    ])
 
     # Create feature names list for later use in importance analysis
     feature_names = numeric_features.copy()
