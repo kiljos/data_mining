@@ -1,16 +1,20 @@
 
 from sklearn.model_selection import train_test_split
 from Preprocessing.preprocessing_pipeline_impute_fuel_types_no_drop import preprocessing_pipeline
+from Preprocessing.preprocessing_pipeline_segment import preprocessing_pipeline_segment
 import pandas as pd 
 
 
-def split_data(path = '../../data.csv'):
+def split_data(path = '../../data.csv', segment = None):
 
     df = pd.read_csv(path)
 
     yearsToFilter = list(df['year'].unique()[:29])  # wegen Scraping Fehler
     filt = [val in yearsToFilter for val in df['year']]
     df = df[filt]
+
+    if segment: 
+        df = preprocessing_pipeline_segment(df)
 
 
     counts       = df['model'].value_counts()
