@@ -4,10 +4,9 @@ from Preprocessing.preprocessing_pipeline_impute_fuel_types_no_drop import prepr
 import pandas as pd 
 
 
-def split_data():
+def split_data(path = '../../data.csv'):
 
-    
-    df = pd.read_csv('../../data.csv')
+    df = pd.read_csv(path)
 
     yearsToFilter = list(df['year'].unique()[:29])  # wegen Scraping Fehler
     filt = [val in yearsToFilter for val in df['year']]
