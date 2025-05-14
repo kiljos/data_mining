@@ -4,35 +4,61 @@ import re
 import gc  # Garbage Collector zur Speicherverwaltung
 
 
-def clean_fuel_consumption(value):
+def clean_fuel_consumption(fuel_type, value):
     """
     Extrahiert den Verbrauch in l/100 km als float.
     Alle anderen Einheiten und ungültige Werte werden zu NaN.
     """
-    if pd.isna(value) or 'l/100 km' not in str(value):
-        return np.nan
-    try:
-        # Zahl vor dem Leerzeichen, Komma zu Punkt
-        return float(str(value).split(' ')[0].replace(',', '.'))
-    except:
-        return np.nan
+    if fuel_type in ['Diesel', 'Petrol', 'Hybrid', 'LPG', 'Electric', 'Diesel Hybrid', 'Other', 'Unknown', 'Ethanol']:
+        if pd.isna(value) or 'l/100' not in str(value):
+            return np.nan
+        try:
+            return float(str(value).split(' ')[0].replace(',', '.'))
+        except:
+            return np.nan
 
-def preprocessing_pipeline(path='../data.csv'):
-    # Daten laden
-    df = pd.read_csv(path)
+    elif fuel_type == 'CNG':
+        if 'kg/100' in str(value):
+            try:
+                return round(float(str(value).split(' ')[0].replace(',', '.')) / 0.18, 2)
+            except:
+                return np.nan
+        elif 'l/100' in str(value):
+            try:
+                return float(str(value).split(' ')[0].replace(',', '.'))
+            except:
+                return np.nan
+        else:
+            return np.nan
+    elif fuel_type == 'Hydrogen':
+        if 'kg/100' in str(value):
+            try:
+                kg = float(str(value).split()[0].replace(',', '.'))
+                return round(kg * 33.33 / 8.6, 2)
+            except:
+                return np.nan
+        else:
+            return np.nan
+        
+    return np.nan
+
+def preprocessing_pipeline(df):
+
 
     if 'Unnamed: 0' in df.columns:
         df = df.drop('Unnamed: 0', axis=1)
 
     # Nur relevante fuel types
-    df = df[df['fuel_type'].isin(['Diesel', 'Petrol', 'Hybrid', 'LPG', 'Electric'])].reset_index(drop=True)
+ #   df = df[df['fuel_type'].isin(['Diesel', 'Petrol', 'Hybrid', 'LPG', 'Electric', 'CNG', 'Diesel Hybrid', 'Unknown', 'Hydrogen'])].reset_index(drop=True)
 
     # Fuel consumption in l/100 km bereinigen
-    df['fuel_consumption_l_100km'] = df['fuel_consumption_l_100km'].apply(clean_fuel_consumption)
+    df['fuel_consumption_l_100km'] = df.apply(
+    lambda row: clean_fuel_consumption(row['fuel_type'], row['fuel_consumption_l_100km']),
+    axis=1
+    )
 
     # E-Autos: Verbrauch auf 0 setzen, Reichweite extrahieren
     e_mask = df['fuel_type'] == 'Electric'
-    # Setze Verbrauch l/100 km auf 0
     df.loc[e_mask, 'fuel_consumption_l_100km'] = 0.0
     # Extrahiere Reichweite aus fuel_consumption_g_km
     range_mask = e_mask & df['fuel_consumption_g_km'].astype(str).str.contains(r'km Reichweite', na=False)
