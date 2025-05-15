@@ -49,7 +49,7 @@ def preprocessing_pipeline(df):
         df = df.drop('Unnamed: 0', axis=1)
 
     # Nur relevante fuel types
- #   df = df[df['fuel_type'].isin(['Diesel', 'Petrol', 'Hybrid', 'LPG', 'Electric', 'CNG', 'Diesel Hybrid', 'Unknown', 'Hydrogen'])].reset_index(drop=True)
+    df = df[df['fuel_type'].isin(['Diesel', 'Petrol', 'Hybrid', 'LPG', 'Electric', 'Diesel Hybrid', 'Other', 'Unknown', 'Ethanol', 'CNG', 'Hydrogen'])].reset_index(drop=True)
 
     # Fuel consumption in l/100 km bereinigen
     df['fuel_consumption_l_100km'] = df.apply(

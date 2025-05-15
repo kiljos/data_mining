@@ -5,13 +5,20 @@ from Preprocessing.preprocessing_pipeline_segment import preprocessing_pipeline_
 import pandas as pd 
 
 
-def split_data(path = '../../data.csv', segment = None):
+def split_data(path = '../../data.csv', segment = None, fuel_type = ['Diesel', 'Petrol', 'Hybrid', 'LPG', 'Electric', 'Diesel Hybrid', 'Other', 'Unknown', 'Ethanol', 'CNG', 'Hydrogen']):
 
     df = pd.read_csv(path)
 
     yearsToFilter = list(df['year'].unique()[:29])  # wegen Scraping Fehler
     filt = [val in yearsToFilter for val in df['year']]
     df = df[filt]
+
+    df = df[df['fuel_type'].isin(fuel_type)].reset_index(drop=True)
+
+    df = df.drop_duplicates(subset= ['brand', 'model', 'color', 'registration_date', 'year',
+       'price_in_euro', 'power_kw', 'power_ps', 'transmission_type',
+       'fuel_type', 'fuel_consumption_l_100km', 'fuel_consumption_g_km',
+       'mileage_in_km', 'offer_description']) 
 
     if segment: 
         df = preprocessing_pipeline_segment(df)
