@@ -17,3 +17,7 @@ def evaluate_model(y_true, y_pred, model_name):
     print(f"RMSE: {rmse:.2f}")
     print(f"R²: {r2:.2f}")
     print("-" * 30)
+
+
+
+    
