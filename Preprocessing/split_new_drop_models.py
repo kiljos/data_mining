@@ -1,0 +1,76 @@
+
+from sklearn.model_selection import train_test_split
+from Preprocessing.preprocessing_pipeline_impute_fuel_types_no_drop import preprocessing_pipeline
+from Preprocessing.preprocessing_pipeline_segment import preprocessing_pipeline_segment
+import pandas as pd 
+import re
+
+
+def drop_records_brand_equal_model(df):
+    """
+    Entfernt alle Zeilen, in denen brand und model nach Normalisierung identisch sind.
+    """
+    def normalize(text):
+        if pd.isna(text):
+            return ""
+        return re.sub(r"[^a-z0-9]", "", text.lower())
+
+    df = df.copy()
+    df["brand_norm"]  = df["brand"].apply(normalize)
+    df["model_norm"]  = df["model"].apply(normalize)
+
+    # Zeilen behalten, bei denen die Normalisierungen unterschiedlich sind
+    df = df[df["brand_norm"] != df["model_norm"]].reset_index(drop=True)
+
+    df.drop(columns=["brand_norm", "model_norm"], inplace=True)
+    return df
+
+
+def split_data(path = '../../data.csv', segment = None, fuel_type = ['Diesel', 'Petrol', 'Hybrid', 'LPG', 'Electric', 'Diesel Hybrid', 'Other', 'Unknown', 'Ethanol', 'CNG', 'Hydrogen']):
+
+    df = pd.read_csv(path)
+
+    yearsToFilter = list(df['year'].unique()[:29])  # wegen Scraping Fehler
+    filt = [val in yearsToFilter for val in df['year']]
+    df = df[filt]
+
+    df = df[df['fuel_type'].isin(fuel_type)].reset_index(drop=True)
+
+    df = df.drop_duplicates(subset= ['brand', 'model', 'color', 'registration_date', 'year',
+       'price_in_euro', 'power_kw', 'power_ps', 'transmission_type',
+       'fuel_type', 'fuel_consumption_l_100km', 'fuel_consumption_g_km',
+       'mileage_in_km', 'offer_description']) 
+
+    df = drop_records_brand_equal_model(df)
+
+    if segment: 
+        df = preprocessing_pipeline_segment(df)
+
+
+    counts       = df['model'].value_counts()
+    rare_models  = counts[counts < 2].index           # nur 1 Zeile
+    df_rare      = df[df['model'].isin(rare_models)]  # bleibt im Train
+    df_common    = df[~df['model'].isin(rare_models)] # ≥2 Zeilen
+
+    train_c, test_c = train_test_split(
+        df_common,
+        test_size   = 0.2,
+        random_state= 42,
+        stratify    = df_common['model']              
+    )
+
+    df_train = pd.concat([train_c, df_rare], ignore_index=True)
+    df_test  = test_c.copy()
+    df_train = preprocessing_pipeline(df_train)
+    df_test = preprocessing_pipeline(df_test)
+
+    X_train = df_train.drop(columns='price_in_euro')
+    y_train = df_train['price_in_euro']
+    X_test = df_test.drop(columns='price_in_euro')
+    y_test = df_test['price_in_euro']
+
+    numeric_features = X_train.select_dtypes(include=['int64', 'float64']).columns.tolist()
+    categorical_features = X_train.select_dtypes(include=['object']).columns.tolist()
+
+    return X_train, X_test, y_train, y_test, categorical_features , numeric_features
+
